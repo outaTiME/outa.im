@@ -8,7 +8,7 @@ $(function () {
 
   "use strict";
 
-  var a = $(window), c = $("#box"), d = c.closest(".container");
+  var a = $(window), c = $("#box"), d = c.closest(".container"), click = 0, tooltip = false;
   c.bind("center", function () {
     var e = a.height() - d.height() - 36, f = Math.floor(e / 2); // 36 too from container padding
     if (f > 0) { // took from style
@@ -21,22 +21,54 @@ $(function () {
     });
   });
   c.css({visibility: "visible"});
+
+  // configure tooltip
+  $('#avatar').tooltip({
+    title: "Woooot, happy face!",
+    trigger: "manual"
+  });
+
   // happy code
   if (Modernizr.touch) {
     $('#avatar').bind('touchstart', function () {
-      $(this).addClass('plate');
+      click += 1;
+      if (click === 5) {
+        $(this).addClass("real");
+        $(this).tooltip('show');
+        tooltip = true;
+        click = 0;
+      } else {
+        $(this).addClass('plate');
+      }
     });
     $('#avatar').bind('touchend', function () {
       $(this).removeClass('plate');
+      $(this).removeClass("real");
+      if (tooltip === true) {
+        $(this).tooltip('hide');
+        tooltip = false;
+      }
     });
   } else {
     $('#avatar').hover(
       function () {
-        $(this).addClass("plate");
+        click += 1;
+        if (click === 5) {
+          $(this).addClass("real");
+          $(this).tooltip('show');
+          tooltip = true;
+          click = 0;
+        } else {
+          $(this).addClass("plate");
+        }
       },
       function () {
         $(this).removeClass("plate");
-        // $(this).removeClass("real");
+        $(this).removeClass("real");
+        if (tooltip === true) {
+          $(this).tooltip('hide');
+          tooltip = false;
+        }
       }
     );
   }

@@ -55,20 +55,21 @@ body {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-  background-image: url("../images/avatar.png");
-  background-size: 100% 100%;
+  background: url("../images/avatar.png") no-repeat 0 0;
+  /* background-size: 100% 100%; */
   height: 100px;
   width: 100px;
   margin: 0 auto 18px;
   /* border: 1px solid rgba(0, 0, 0, 0.15); */
+  display: block;
 }
 
 #home #box #avatar.plate {
-  background-image: url("../images/avatar-plate.png");
+  background-position: 0px -200px;
 }
 
 #home #box #avatar.real {
-  background-image: url("../images/avatar-real.png") !important;
+  background-position: 0px -100px;
 }
 
 #home #box #avatar div.overlay {
