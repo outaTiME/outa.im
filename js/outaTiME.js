@@ -20,20 +20,22 @@ $(function () {
   });
   c.css({visibility: "visible"});
   // happy code
-  $('#avatar').hover(
-    function () {
-      $(this).addClass("plate");
-    },
-    function () {
-      $(this).removeClass("plate");
-      // $(this).removeClass("real");
-    }
-  );
-  /* $('#avatar').click(function () {
-    if ($(this).hasClass("plate")) {
-      $(this).addClass("real");
-    } else {
-      $(this).removeClass("real");
-    }
-  }); */
+  if (Modernizr.touch) {
+    $('#avatar').bind('touchstart', function() {
+      $(this).addClass('plate');
+    });
+    $('#avatar').bind('touchend', function() {
+      $(this).removeClass('plate');
+    });
+  } else {
+    $('#avatar').hover(
+      function () {
+        $(this).addClass("plate");
+      },
+      function () {
+        $(this).removeClass("plate");
+        // $(this).removeClass("real");
+      }
+    );
+  }
 });
