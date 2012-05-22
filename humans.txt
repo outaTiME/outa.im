@@ -1,0 +1,18 @@
+
+              __     _
+   _    _/__  /./|,//_`
+  /_//_// /_|///  //_, outaTiME
+
+
+/* TEAM */
+  Web Engineer: Ariel Oscar Falduto
+  Site: http://www.outa.im
+  Twitter: @outa7iME
+  Contact: afalduto at gmail dot com
+  From: Buenos Aires, Argentina
+
+/* SITE */
+  Last update: 2012/05/22
+  Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
+  Components: Modernizr, jQuery, Twitter Bootstrap
+  Software: Sublime Text 2, CodeKit, Photoshop
