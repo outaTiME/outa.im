@@ -1,0 +1,27 @@
+extends layout
+
+append styles
+  link(rel="stylesheet", href="css/outatime.css")
+
+block content
+  #home.vignette
+    .flex
+      .container
+        .row
+          .span4.offset4
+            #box.effect3
+              #avatar
+                .overlay
+              p.lead
+                small Hello
+                | , i'm 
+                span outaTiME
+              hr.soften
+              footer.footer
+                p Also known as 
+                  strong Ariel Falduto
+                  | , I can be reached at 
+                  a(href="mailto:afalduto@gmail.com") afalduto@gmail.com
+
+append scripts
+  script(src="js/outatime.min.js")
