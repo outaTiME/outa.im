@@ -28,6 +28,8 @@ $(function () {
     trigger: "manual"
   });
 
+  var click = 0, tooltip = false;
+
   // happy code
   if (Modernizr.touch) {
     $('#avatar').bind('touchstart', function () {
