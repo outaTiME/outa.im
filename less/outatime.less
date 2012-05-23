@@ -6,11 +6,6 @@
 
 @import "bootstrap/bootstrap.less";
 
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
-}
-
 @import "bootstrap/responsive.less";
 
 * {
@@ -29,12 +24,33 @@ body {
   background: url("../images/groovepaper.png") center top repeat;
 }
 
+#home {
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+
+  display: -ms-box;
+  -ms-box-pack: center;
+  -ms-box-align: center;
+
+  display: box;
+  box-pack: center;
+  box-align: center;
+}
+
 #home .container {
-  padding: 18px 0;
+  /* padding: 18px 0; */
 }
 
 #home #box {
-  visibility: hidden;
+
+  position: relative;
+
+  /* visibility: hidden; */
   padding: 18px;
   background: #fff;
   border: 1px solid #ddd;
@@ -48,7 +64,12 @@ body {
     -moz-box-shadow 0 1px 6px #bbb
     box-shadow 0 1px 6px #bbb */
 /* border-bottom 1px solid rgba(0, 0, 0, 0.18) */
+
   text-align: center;
+
+    /* max-width:50em;
+    margin:0 auto; */
+
 }
 
 #home #box #avatar {

@@ -8,7 +8,7 @@ $(function () {
 
   "use strict";
 
-  var a = $(window), c = $("#box"), d = c.closest(".container"), click = 0, tooltip = false;
+  /* var a = $(window), c = $("#box"), d = c.closest(".container"), click = 0, tooltip = false;
   c.bind("center", function () {
     var e = a.height() - d.height() - 36, f = Math.floor(e / 2); // 36 too from container padding
     if (f > 0) { // took from style
@@ -20,7 +20,7 @@ $(function () {
       c.trigger("center");
     });
   });
-  c.css({visibility: "visible"});
+  c.css({visibility: "visible"}); */
 
   // configure tooltip
   $('#avatar').tooltip({
