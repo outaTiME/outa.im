@@ -24,47 +24,32 @@ body {
   background: url("../images/groovepaper.png") center top repeat;
 }
 
-#home {
+#home .flex {
   display: -webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-
   display: -moz-box;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-
-  display: -ms-box;
-  -ms-box-pack: center;
-  -ms-box-align: center;
-
   display: box;
-  box-pack: center;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-align: center;
+  -moz-box-align: center;
   box-align: center;
-}
-
-#home .container {
-  /* padding: 18px 0; */
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
 }
 
 #home #box {
-
-  /* visibility: hidden; */
   padding: 18px;
   background: #fff;
   border: 1px solid #ddd;
-
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-
-/* border 1px solid rgba(0, 0, 0, 0.15)
-    -webkit-box-shadow 0 1px 6px #bbb
-    -moz-box-shadow 0 1px 6px #bbb
-    box-shadow 0 1px 6px #bbb */
-/* border-bottom 1px solid rgba(0, 0, 0, 0.18) */
-
   text-align: center;
-
 }
 
 #home #box #avatar {
@@ -90,15 +75,8 @@ body {
 
 #home #box #avatar div.overlay {
   background: transparent url(../images/note-overlay.png) no-repeat 0 0;
-  /* height: 100px;
-  width: 100px;
-  position: absolute; */
   width: 100%;
   height: 100%;
-  /* top: -1px;
-  left: -1px;
-  border: 1px solid #000;
-  border-color: rgba(0,0,0,.5); */
   -webkit-box-shadow: 0 0 2px rgba(255,255,255,.75);
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
