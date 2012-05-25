@@ -42,6 +42,42 @@ body {
   vertical-align: top;
 }
 
+#home .container {
+  -webkit-animation: load 0.6s;
+  -moz-animation: load 0.6s; 
+  -animation: load 0.6s; 
+}
+
+@-webkit-keyframes load {
+  from {
+    -webkit-transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes load {
+  from {
+    -moz-transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    -moz-transform: scale(1);
+  }
+}
+
+@keyframes load {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 #home #box {
   padding: 18px;
   background: #fff;
