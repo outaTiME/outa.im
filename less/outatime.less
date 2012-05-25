@@ -56,6 +56,7 @@ body {
   -webkit-animation: load 0.6s;
   -moz-animation: load 0.6s; 
   -ms-animation: load 0.6s; 
+  -o-animation: load 0.6s; 
   -animation: load 0.6s; 
 }
 
@@ -86,6 +87,16 @@ body {
   }
   to {
     -ms-transform: scale(1);
+  }
+}
+
+@-o-keyframes load {
+  from {
+    -o-transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    -o-transform: scale(1);
   }
 }
 
