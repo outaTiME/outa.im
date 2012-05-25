@@ -53,11 +53,10 @@ body {
 }
 
 #home .container {
-  -webkit-animation: load 0.6s;
-  -moz-animation: load 0.6s; 
-  -ms-animation: load 0.6s; 
-  -o-animation: load 0.6s; 
-  -animation: load 0.6s; 
+  -webkit-animation: load 0.6s; /* Saf5, Chrome */
+     -moz-animation: load 0.6s; /* FF5+ */
+      -ms-animation: load 0.6s; /* IE10 */ 
+       -o-animation: load 0.6s; /* Opera 12+ */ 
 }
 
 @-webkit-keyframes load {
@@ -100,22 +99,12 @@ body {
   }
 }
 
-@keyframes load {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
 #home #box {
   padding: 18px;
   background: #fff;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
+     -moz-border-radius: 4px;
   border-radius: 4px;
   text-align: center;
 }
