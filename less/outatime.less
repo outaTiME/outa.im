@@ -15,6 +15,16 @@
   -webkit-user-select: none;
 }
 
+::selection {
+  color: #fff;
+  background: #f676b2; /* Safari */
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #f676b2; /* Firefox */
+}
+
 /* input, textarea, select {
   -webkit-user-select: auto;
   -webkit-touch-callout: auto;
@@ -163,6 +173,7 @@ hr.soften {
 }
 
 /** Experiments **/
+
 .vignette {
   display: block;
   position: absolute;
@@ -170,8 +181,10 @@ hr.soften {
   top: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../images/vignette.png");
-  background-size: 100% 100%;
+  background-image: -webkit-radial-gradient(50% 50%, rgba(0,0,0,0), rgba(0,0,0,0.10));
+  background-image: -moz-radial-gradient(50% 50%, rgba(0,0,0,0), rgba(0,0,0,0.10));
+  background-image: -ms-radial-gradient(50% 50%, rgba(0,0,0,0), rgba(0,0,0,0.10));
+  background-image: -o-radial-gradient(50% 50%, rgba(0,0,0,0), rgba(0,0,0,0.10));
 }
 
 .effect3 {
