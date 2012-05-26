@@ -15,15 +15,18 @@
   -webkit-user-select: none;
 }
 
+/* 
 ::selection {
   color: #fff;
-  background: #f676b2; /* Safari */
+  background: #f676b2;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #f676b2; /* Firefox */
+  background: #f676b2;
 }
+
+*/
 
 /* input, textarea, select {
   -webkit-user-select: auto;
@@ -162,20 +165,18 @@ hr.soften {
   margin-bottom: 0;
 }
 
-.marketing h1 {
-  font-size: 32px;
-  font-weight: 200;
-  text-align: center;
-  margin-bottom: 18px;
+#warning-browser {
+  display: none;
 }
 
-.marketing-byline {
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 24px;
-  color:
-  rgb(153, 153, 153);
-  text-align: center;
+/** Modernizr **/
+
+.no-cssanimations #warning-browser, 
+.no-cssgradients #warning-browser, 
+.no-csstransforms #warning-browser, 
+.no-borderradius #warning-browser, 
+.no-boxshadow #warning-browser {
+  display: block;
 }
 
 /** Experiments **/
@@ -187,10 +188,10 @@ hr.soften {
   top: 0;
   right: 0;
   bottom: 0;
-  background-image: -webkit-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3));
-  background-image: -moz-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3));
-  background-image: -ms-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3));
-  background-image: -o-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3));
+  background-image: -webkit-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  background-image: -moz-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  background-image: -ms-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  background-image: -o-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
 }
 
 .effect3 {
