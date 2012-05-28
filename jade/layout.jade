@@ -1,5 +1,3 @@
-- var timestamp = new Date().getTime();
-
 !!! 5
 //if lt IE 7
   <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
@@ -21,17 +19,15 @@ html(class='no-js', lang='en')
     meta(name="apple-mobile-web-app-capable", content="yes")
     meta(name="apple-mobile-web-app-status-bar-style", content="black")
     block styles
-    script(src='js/libs/modernizr-2.5.3-respond-1.1.0.min.js')
+      link(rel="stylesheet", href="dist/css/outatime.css")
+    script(src='js/modernizr-2.5.3-respond-1.1.0.min.js')
   body
-  
+
     div(role="main")
       block content
-  
+
     block scripts
-      script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
-      script window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')
-      script(src="js/libs/bootstrap/bootstrap.min.js")
-      script(src="js/libs/flexie.min.js")
+      script(src="dist/js/outatime.min.js")
 
     script
       var _gaq=[['_setAccount','UA-31782998-1'],['_setDomainName', 'outa.im'],['_trackPageview']];
