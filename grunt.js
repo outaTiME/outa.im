@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         '*/'
     },
     files: [
-      'js/jquery-1.7.2.min.js',
+      'js/jquery-1.7.2.js',
       'js/bootstrap/bootstrap.js',
       'js/flexie.js',
       'js/outatime.js'
@@ -56,8 +56,18 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<config:files>', '<config:recess.dist.src>', '<config:jade.dist.src>'],
-      tasks: 'default'
+      recess: {
+        files: ['<config:recess.dist.src>'],
+        tasks: 'recess'
+      },
+      jade: {
+        files: ['jade/layout.jade', '<config:jade.dist.src>'],
+        tasks: 'jade'
+      },
+      js: {
+        files: ['<config:files>'],
+        tasks: 'lint min'
+      }
     },
     jshint: {
       options: {
@@ -91,7 +101,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-growl');
 
-  grunt.registerTask('default', 'lint recess jade concat min growl:build');
+  grunt.registerTask('default', 'recess jade concat lint min growl:build');
   // grunt.registerTask('prod', 'lint recess jade min growl:build');
 
 };
