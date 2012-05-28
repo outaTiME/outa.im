@@ -1,8 +1,6 @@
 
 $(function () {
 
-  "use strict";
-
   /* var a = $(window), c = $("#box"), d = c.closest(".container"), click = 0, tooltip = false;
   c.bind("center", function () {
     var e = a.height() - d.height() - 36, f = Math.floor(e / 2); // 36 too from container padding
@@ -17,13 +15,13 @@ $(function () {
   });
   c.css({visibility: "visible"}); */
 
+  var click = 0, tooltip = false;
+
   // configure tooltip
   $('#avatar').tooltip({
     title: "Woooot, happy face!",
     trigger: "manual"
   });
-
-  var click = 0, tooltip = false;
 
   // happy code
   if (Modernizr.touch) {

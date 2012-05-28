@@ -27,7 +27,7 @@ html(class='no-js', lang='en')
       block content
 
     block scripts
-      script(src="dist/js/outatime.min.js")
+      script(src="dist/js/outatime" + (debug === true ? '.js' : '.min.js'))
 
     script
       var _gaq=[['_setAccount','UA-31782998-1'],['_setDomainName', 'outa.im'],['_trackPageview']];
