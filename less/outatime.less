@@ -3,26 +3,26 @@
 
 @import "bootstrap/responsive.less";
 
-* {
+.touch * {
   -webkit-touch-callout: none;
   -webkit-text-size-adjust: none;
+  
   /* -webkit-tap-highlight-color: rgba(0,0,0,0); */
+  
+  -moz-user-select: none;
   -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
-/*
-
-::selection {
+.no-touch ::selection {
   color: #fff;
   background: #f676b2;
 }
 
-::-moz-selection {
+.no-touch ::-moz-selection {
   color: #fff;
   background: #f676b2;
 }
-
-*/
 
 /* input, textarea, select {
   -webkit-user-select: auto;
@@ -133,8 +133,16 @@ body {
   height: 100%;
 }
 
+@import url(http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise);
+
 #home #box .lead {
   margin-bottom: 0;
+  
+  font-family: 'Waiting for the Sunrise', cursive;
+
+  // font-family: 'Give You Glory', cursive;
+  // font-family: 'Annie Use Your Telescope', cursive;
+
 }
 
 #home #box .lead small {
@@ -176,7 +184,8 @@ hr.soften {
 .no-cssgradients #warning-browser,
 .no-csstransforms #warning-browser,
 .no-borderradius #warning-browser,
-.no-boxshadow #warning-browser {
+.no-boxshadow #warning-browser, 
+.no-fontface #warning-browser {
   display: block;
 }
 
