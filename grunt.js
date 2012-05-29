@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     meta: {
-      version: '0.9.2a',
+      version: '0.9.3',
       banner: '/*!\n' +
         '*              __     _\n' +
         '*   _    _/__  /./|,//_`\n' +
