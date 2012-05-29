@@ -2,12 +2,12 @@
 module.exports = function (grunt) {
 
   grunt.initConfig({
+    pkg: '<json:package.json>',
     meta: {
-      pkg: '<json:package.json>',
       banner: '/*!\n' +
         '*              __     _\n' +
         '*   _    _/__  /./|,//_`\n' +
-        '*  /_//_// /_|///  //_, v.<%= meta.version %>\n' +
+        '*  /_//_// /_|///  //_, v.<%= pkg.version %>\n' +
         '*\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> outaTiME, Inc.\n' +
         '*/'
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
         src: ['build/manifest.appcache', 'build/humans.txt'],
         dest: 'public',
         variables: {
-          // version: '<%= meta.version %>',
+          // version: '<%= pkg.version %>',
           timestamp: '<%= grunt.template.today() %>'
         }
       }
