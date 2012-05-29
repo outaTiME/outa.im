@@ -9,8 +9,8 @@
   
   /* -webkit-tap-highlight-color: rgba(0,0,0,0); */
   
-  -moz-user-select: none;
   -webkit-user-select: none;
+  -moz-user-select: none;
   -ms-user-select: none;
 }
 
@@ -52,10 +52,10 @@ body {
 }
 
 #home .container {
-  -webkit-animation: load 0.6s; /* Saf5, Chrome */
-     -moz-animation: load 0.6s; /* FF5+ */
-      -ms-animation: load 0.6s; /* IE10 */
-       -o-animation: load 0.6s; /* Opera 12+ */
+  -webkit-animation: load 0.6s;
+  -moz-animation: load 0.6s;
+  -ms-animation: load 0.6s;
+  -o-animation: load 0.6s;
 }
 
 @-webkit-keyframes load {
@@ -104,8 +104,8 @@ body {
   border: 1px solid #ddd;
   text-align: center;
   -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 
 #home #box #avatar {
@@ -115,8 +115,8 @@ body {
   margin: 0 auto 18px;
   display: block;
   -webkit-border-radius: 50px;
-     -moz-border-radius: 50px;
-          border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
 }
 
 #home #box #avatar.plate {
@@ -167,15 +167,6 @@ body {
   line-height: 40px;
 }
 
-hr.soften {
-  height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  border: 0;
-}
-
 #home #box footer p:last-child {
   margin-bottom: 0;
 }
@@ -202,6 +193,15 @@ hr.soften {
 
 /** Experiments **/
 
+hr.soften {
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
+}
+
 .vignette {
   display: block;
   position: absolute;
@@ -210,9 +210,9 @@ hr.soften {
   right: 0;
   bottom: 0;
   background-image: -webkit-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
-  background-image: -moz-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
-  background-image: -ms-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
-  background-image: -o-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  background-image:    -moz-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  background-image:     -ms-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  background-image:      -o-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
 }
 
 .effect3 {
