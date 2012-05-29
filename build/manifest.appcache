@@ -11,15 +11,15 @@ CACHE:
 /apple-touch-icon-114x114-precomposed.png
 /apple-touch-icon-144x144-precomposed.png
 
-js/modernizr-2.5.3-respond-1.1.0.min.js
+/js/modernizr-2.5.3-respond-1.1.0.min.js
 
-dist/css/outatime.css
-dist/images/avatar.png
-dist/images/glyphicons-halflings-white.png
-dist/images/glyphicons-halflings.png
-dist/images/groovepaper.png
-dist/images/note-overlay.png
-dist/js/outatime.min.js
+/css/outatime.css
+/images/avatar.png
+/images/glyphicons-halflings-white.png
+/images/glyphicons-halflings.png
+/images/groovepaper.png
+/images/note-overlay.png
+/js/outatime.min.js
 
 index.html
 sandbox.html

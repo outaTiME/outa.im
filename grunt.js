@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     meta: {
-      version: '0.9.8',
+      pkg: '<json:package.json>',
       banner: '/*!\n' +
         '*              __     _\n' +
         '*   _    _/__  /./|,//_`\n' +
@@ -19,24 +19,24 @@ module.exports = function (grunt) {
       'js/outatime.js'
     ],
     lint: {
-      files: ['grunt.js', 'js/outatime.js']
+      files: ['grunt.js', 'app.js', 'js/outatime.js']
     },
     concat: {
       dist: {
         src: ['<config:files>'],
-        dest: 'dist/js/outatime.js'
+        dest: 'public/js/outatime.js'
       }
     },
     min: {
       dist: {
         src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'dist/js/outatime.min.js'
+        dest: 'public/js/outatime.min.js'
       }
     },
     recess: {
       dist: {
         src: ['less/outatime.less'],
-        dest: 'dist/css/outatime.css',
+        dest: 'public/css/outatime.css',
         options: {
           compile: true,
           compress: true
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
     jade: {
       dev: {
         src: ['jade/index.jade', 'jade/sandbox.jade'],
-        dest: '.',
+        dest: 'public',
         options: {
           pretty: true,
           data: {
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: ['<config:jade.dev.src>'],
-        dest: '.',
+        dest: 'public',
         options: {
           data: {
             debug: false
@@ -66,8 +66,8 @@ module.exports = function (grunt) {
     },
     replace: {
       dist: {
-        src: ['build/outatime.appcache', 'build/humans.txt'],
-        dest: '.',
+        src: ['build/manifest.appcache', 'build/humans.txt'],
+        dest: 'public',
         variables: {
           // version: '<%= meta.version %>',
           timestamp: '<%= grunt.template.today() %>'
@@ -162,17 +162,17 @@ module.exports = function (grunt) {
       dev: {
         message: 'Development build done!',
         title: 'outaTiME',
-        image: 'apple-touch-icon.png'
+        image: 'public/apple-touch-icon.png'
       },
       dist: {
         message: 'Distribution build done!',
         title: 'outaTiME',
-        image: 'apple-touch-icon.png'
+        image: 'public/apple-touch-icon.png'
       },
       rebuild: {
         message: 'Rebuild done!',
         title: 'outaTiME',
-        image: 'apple-touch-icon.png'
+        image: 'public/apple-touch-icon.png'
       }
     }
   });
