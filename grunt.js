@@ -69,7 +69,7 @@ module.exports = function (grunt) {
         src: ['build/outatime.appcache', 'build/humans.txt'],
         dest: '.',
         variables: {
-          version: '<%= meta.version %>',
+          // version: '<%= meta.version %>',
           timestamp: '<%= grunt.template.today() %>'
         }
       }
