@@ -70,7 +70,7 @@ module.exports = function (grunt) {
         dest: '.',
         variables: {
           version: '<%= meta.version %>',
-          timestamp: '<%= grunt.template.today("yyyy/mm/dd") %>'
+          timestamp: '<%= grunt.template.today() %>'
         }
       }
     },
