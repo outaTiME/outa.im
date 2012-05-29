@@ -29,7 +29,7 @@ module.exports = function (grunt) {
     },
     min: {
       dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
+        src: ['<banner:meta.banner>', '<config:files>'],
         dest: 'public/js/outatime.min.js'
       }
     },
