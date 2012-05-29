@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Tue May 29 2012 14:18:18
+# Tue May 29 2012 14:20:53
 
 CACHE:
 
@@ -26,5 +26,4 @@ sandbox.html
 404.html
 
 NETWORK:
-
-http://fonts.googleapis.com/css?family=Vibur
+*
