@@ -1,13 +1,16 @@
 {
   "name": "outaTiME",
   "version": "0.9.9",
-  "description": "Cooool, my personal portfolio (used for sandboxes tool).",
+  "description": "Cooool, my personal portfolio (sandbox proposed tool).",
   "homepage": "http://outa.im",
   "keywords": ["personal", "profile", "portfolio", "sandbox", "outaTiME"],
-  "author": "outaTiME <afalduto@gmail.com> (outa.im)",
+  "author": "outaTiME <afalduto@gmail.com> (http://outa.im)",
   "repository": {
     "type": "git",
-    "url": "http://github.com/outaTiME/outatime.github.com.git"
+    "url": "http://github.com/outaTiME/outatime.git"
+  },
+  "bugs": {
+    "url": "http://github.com/outaTiME/outatime/issues"
   },
   "main": "app",
   "dependencies": {
@@ -18,7 +21,7 @@
     "grunt-recess": ">=0.1.0",
     "grunt-contrib": ">=0.0.4",
     "grunt-growl": ">=0.1.1",
-    "grunt-replace": ">=0.1.2"
+    "grunt-replace": ">=0.1.3"
   },
   "engines": {
     "node": ">=0.6.14"
