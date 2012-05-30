@@ -20,7 +20,13 @@ $(function () {
   // configure tooltip
   $('#avatar').tooltip({
     title: "Woooot, happy face!",
-    trigger: "manual"
+    trigger: "manual",
+    placement: 'top'
+  });
+
+  // configure tooltips for social
+  $('#social a').tooltip({
+    placement: 'bottom'
   });
 
   // happy code

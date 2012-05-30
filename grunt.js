@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     },
     recess: {
       dist: {
-        src: ['less/outatime.less', 'less/css-social-buttons/css/zocial.css'],
+        src: ['less/outatime.less'],
         dest: 'public/css/outatime.css',
         options: {
           compile: true,
