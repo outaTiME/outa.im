@@ -178,76 +178,13 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-recess');
-  // grunt.loadNpmTasks('grunt-less');
   grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-growl');
+  grunt.loadNpmTasks('grunt-replace');
 
   grunt.registerTask('default', 'recess jade:dev lint concat growl:dev');
   grunt.registerTask('dist', 'recess jade:dist lint min replace growl:dist');
 
-  // Replace inline patterns over the file list to make the world a better place.
-  grunt.registerMultiTask('replace', 'Replace inline patterns over the file list specified.', function () {
-
-    var
-      path = require('path'),
-      files = grunt.file.expandFiles(this.file.src),
-      target = this.target,
-      config = grunt.config(['replace', this.target]),
-      dest = config.dest || '.',
-      variables = config.variables,
-      prefix = config.prefix,
-      locals = {},
-      processed = 0;
-
-    if (typeof variables === 'object') {
-      grunt.verbose.writeln('Using "' + target + '" replace variables options.');
-    } else {
-      grunt.verbose.writeln('Using master replacer variables options.');
-      variables = grunt.config('replacer.variables') || {};
-    }
-
-    grunt.verbose.writeflags(variables, 'variables');
-
-    if (typeof prefix === 'string') {
-      grunt.verbose.writeln('Using "' + target + '" replace prefix options.');
-    } else {
-      grunt.verbose.writeln('Using master replacer prefix options.');
-      prefix = grunt.config('replacer.prefix') || '@@';
-    }
-
-    grunt.verbose.writeflags(prefix, 'prefix');
-
-    Object.keys(variables).forEach(function (variable) {
-      locals[variable] = grunt.template.process(variables[variable]);
-    });
-
-    files.forEach(function (filepath, index) {
-      var filename = path.basename(filepath), dest_filepath = path.join(dest, filename);
-      grunt.file.copy(filepath, dest_filepath, {
-        process: function (contents) {
-          var updated = false;
-          Object.keys(locals).forEach(function (local) {
-            var re = new RegExp(prefix + local, "g"), value = locals[local];
-            updated = updated || contents.match(re);
-            contents = contents.replace(re, value);
-          });
-          if (updated) {
-            grunt.log.writeln('Replace "' + filepath + '" > "' + dest_filepath + '"');
-            processed++;
-          } else {
-            return false;
-          }
-          return contents;
-        }
-      });
-
-    });
-
-    if (processed === 0) {
-      grunt.log.writeln('No documents updated.');
-    }
-
-  });
 
 
 };
