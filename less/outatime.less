@@ -62,6 +62,30 @@ body {
   border-radius: 4px;
 }
 
+#home #box:before {
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    border-width:0 16px 16px 0; /* This trick side-steps a webkit bug */
+    border-style:solid;
+    border-color:#fff #fff #658E15 #658E15; /* A bit more verbose to work with .rounded too */
+    background:#658E15; /* For Opera when also applying a border-radius */
+    display:block; width:0; /* Only for Firefox 3.0 damage limitation */
+    /* Optional: shadow */
+    -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+       -moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+            box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+
+    border-color:#fff #fff #97010A #97010A; background:#97010A;
+
+    border-width:8px; /* Triggers a 1px 'step' along the diagonal in Safari 5 (and Chrome 10) */
+    border-color:#fff #fff transparent transparent; /* Avoids the 1px 'step' in webkit. Background colour shows through */
+    -webkit-border-bottom-left-radius:5px;
+    -moz-border-radius:0 0 0 5px;
+    border-radius:0 0 0 5px;
+}
+
 #home #box #avatar {
   background: url("/images/avatar.png") no-repeat 0 0;
   height: 100px;
