@@ -1,4 +1,4 @@
-/*global module:false*/
+
 module.exports = function (grunt) {
 
   grunt.initConfig({
@@ -184,7 +184,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', 'recess jade:dev lint concat growl:dev');
   grunt.registerTask('dist', 'recess jade:dist lint min replace growl:dist');
-
-
 
 };
