@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Thu May 31 2012 00:24:47
+# @@timestamp
 
 CACHE:
 
@@ -11,19 +11,22 @@ CACHE:
 /apple-touch-icon-114x114-precomposed.png
 /apple-touch-icon-144x144-precomposed.png
 
-/js/modernizr-2.5.3-respond-1.1.0.min.js
+/js/modernizr.custom.11127.js
+/js/outatime.min.js
 
 /css/outatime.css
+/css/css-social-buttons/css/zocial.css
+
 /images/avatar.png
+/images/avatar@1.5x.png
+/images/avatar@2x.png
 /images/glyphicons-halflings-white.png
 /images/glyphicons-halflings.png
 /images/groovepaper.png
 /images/note-overlay.png
-/js/outatime.min.js
 
 index.html
 sandbox.html
-404.html
 
 NETWORK:
 *

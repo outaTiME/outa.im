@@ -11,7 +11,7 @@ var
   app = connect.createServer();
 
 app.use(connect.compress());
-app.use(connect.static(__dirname + '/public', { maxAge: 86400000 }));
+app.use(connect.static(__dirname + '/public' /*, { maxAge: 86400000 } */));
 
 app.listen(process.env.PORT || 3001, function () {
   console.log("Listening on port %d", this.address().port);

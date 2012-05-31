@@ -34,7 +34,8 @@ body {
   // background: url("/images/rough_diagonal.png") center top repeat;
 }
 
-.flexbox #home .flex {
+.flexbox #home .flex,
+.flexbox-legacy #home .flex {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-box;
@@ -127,7 +128,6 @@ body {
 
 #home #box #social {
   margin-top: 18px;
-  margin-bottom: -4px; // pixel perfect 
 }
 
 #home #box #social .zocial {
@@ -283,12 +283,12 @@ body {
   background-image:      -o-radial-gradient(50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
 }
 
-.effect3 {
+.boxshadow .effect3 {
   position: relative;
 }
 
-.effect3:before,
-.effect3:after {
+.boxshadow .effect3:before,
+.boxshadow .effect3:after {
   z-index: -1;
   position: absolute;
   content: "";
@@ -308,7 +308,7 @@ body {
   transform: rotate(-3deg);
 }
 
-.effect3:after {
+.boxshadow .effect3:after {
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -o-transform: rotate(3deg);
@@ -318,7 +318,7 @@ body {
   left: auto;
 }
 
-#home .container {
+.cssanimations #home .container {
 // #home #box #avatar {
   -webkit-animation: load 0.4s;
   -moz-animation: load 0.4s;

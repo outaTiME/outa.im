@@ -1,10 +1,8 @@
 
 $(function () {
 
-  if (!Modernizr.flexbox) {
-
-    console.info("cool");
-
+  if (!Modernizr.flexbox && !Modernizr['flexbox-legacy']) {
+    alert('No flexbox support.');
     var a = $(window), c = $("#box"), d = c.closest(".container");
     c.bind("center", function () {
       var e = a.height() - d.height(), f = Math.floor(e / 2);
@@ -17,6 +15,8 @@ $(function () {
         c.trigger("center");
       });
     });
+  } else {
+    alert('Flexbox supported.');
   }
 
   var click = 0, tooltip = false;

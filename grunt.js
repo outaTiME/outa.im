@@ -67,7 +67,7 @@ module.exports = function (grunt) {
     },
     replace: {
       dist: {
-        src: ['build/manifest.appcache', 'build/humans.txt'],
+        src: ['build/outatime.appcache', 'build/humans.txt'],
         dest: 'public',
         variables: {
           // version: '<%= pkg.version %>',
@@ -78,15 +78,15 @@ module.exports = function (grunt) {
     watch: {
       recess: {
         files: ['<config:recess.dist.src>'],
-        tasks: 'recess growl:rebuild'
+        tasks: 'recess replace growl:rebuild'
       },
       jade: {
         files: ['jade/layout.jade', '<config:jade.dev.src>'],
-        tasks: 'jade:dev growl:rebuild'
+        tasks: 'jade:dev replace growl:rebuild'
       },
       js: {
         files: ['<config:files>'],
-        tasks: 'jade:dev lint concat growl:rebuild'
+        tasks: 'jade:dev lint concat replace growl:rebuild'
       }
     },
     jshint: {
@@ -183,7 +183,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-growl');
   grunt.loadNpmTasks('grunt-replace');
 
-  grunt.registerTask('default', 'recess jade:dev lint concat growl:dev');
+  grunt.registerTask('default', 'recess jade:dev lint concat replace growl:dev');
   grunt.registerTask('dist', 'recess jade:dist lint min replace growl:dist');
 
 };
