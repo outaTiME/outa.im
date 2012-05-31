@@ -86,7 +86,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<config:files>'],
-        tasks: 'lint concat growl:rebuild'
+        tasks: 'jade:dev lint concat growl:rebuild'
       }
     },
     jshint: {
