@@ -1,19 +1,20 @@
 
 $(function () {
 
-  /* var a = $(window), c = $("#box"), d = c.closest(".container"), click = 0, tooltip = false;
-  c.bind("center", function () {
-    var e = a.height() - d.height() - 36, f = Math.floor(e / 2); // 36 too from container padding
-    if (f > 0) { // took from style
-      d.css({marginTop: f});
-    }
-  }).trigger("center");
-  a.resize(function () {
-    $.doTimeout('resize', 250, function () {
-      c.trigger("center");
+  if (!Modernizr.flexbox) {
+    var a = $(window), c = $("#box"), d = c.closest(".container");
+    c.bind("center", function () {
+      var e = a.height() - d.height() - 36, f = Math.floor(e / 2); // 36 too from container padding
+      if (f > 0) { // took from style
+        d.css({marginTop: f});
+      }
+    }).trigger("center");
+    a.resize(function () {
+      $.doTimeout('resize', 250, function () {
+        c.trigger("center");
+      });
     });
-  });
-  c.css({visibility: "visible"}); */
+  }
 
   var click = 0, tooltip = false;
 

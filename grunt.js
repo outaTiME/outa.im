@@ -14,6 +14,7 @@ module.exports = function (grunt) {
     },
     files: [
       'js/jquery-1.7.2.min.js',
+      'js/jquery.ba-dotimeout.min.js',
       'js/bootstrap/bootstrap.min.js',
       // 'js/flexie.js',
       'js/outatime.js'
