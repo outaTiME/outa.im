@@ -51,7 +51,8 @@ module.exports = function (grunt) {
         options: {
           pretty: true,
           data: {
-            debug: true
+            debug: true,
+            timestamp: '<%= new Date().getTime() %>'
           }
         }
       },
@@ -60,14 +61,15 @@ module.exports = function (grunt) {
         dest: 'public',
         options: {
           data: {
-            debug: false
+            debug: false,
+            timestamp: '<%= new Date().getTime() %>'
           }
         }
       }
     },
     replace: {
       dist: {
-        src: ['build/outatime.appcache', 'build/humans.txt'],
+        src: ['build/manifest.appcache', 'build/humans.txt'],
         dest: 'public',
         variables: {
           // version: '<%= pkg.version %>',
@@ -145,7 +147,7 @@ module.exports = function (grunt) {
         "newcap"        : true,   // Require capitalization of all constructor functions e.g. `new F()`.
         "noempty"       : true,   // Prohibit use of empty blocks.
         "nonew"         : true,   // Prohibit use of constructors for side-effects.
-        "nomen"         : true,   // Prohibit use of initial or trailing underbars in names.
+        "nomen"         : false,  // Prohibit use of initial or trailing underbars in names.
         "onevar"        : false,  // Allow only one `var` statement per function.
         "plusplus"      : false,  // Prohibit use of `++` & `--`.
         "sub"           : false,  // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
@@ -179,11 +181,57 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-recess');
-  grunt.loadNpmTasks('grunt-contrib');
+  // grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-growl');
   grunt.loadNpmTasks('grunt-replace');
 
   grunt.registerTask('default', 'recess jade:dev lint concat replace growl:dev');
   grunt.registerTask('dist', 'recess jade:dist lint min replace growl:dist');
+
+  var file = grunt.file,
+       log = grunt.log,
+         _ = grunt.utils._;
+
+  // Helper for consistent options key access across contrib tasks.
+  grunt.registerHelper("options", function (data) {
+    var namespace = data.nameArgs.split(":"),
+             task = grunt.config(_.flatten([namespace, "options"])),
+   global_subtask = namespace.length > 1 ? grunt.config(_.flatten(["options", namespace])) : {},
+           global = grunt.config(["options", namespace[0]]);
+    return _.defaults({}, task, global_subtask, global);
+  });
+
+  grunt.registerMultiTask("jade", "Compile Jade templates into HTML.", function () {
+    var options = grunt.helper("options", this),
+           path = require("path"),
+          files = this.file.src,
+           dest = this.file.dest,
+           data = options.data;
+    // add template process for grunt templates
+    if (typeof data !== "undefined") {
+      Object.keys(data).forEach(function (key) {
+        var value = data[key];
+        if (typeof value === 'string') {
+          data[key] = grunt.template.process(data[key]);
+        }
+      });
+    }
+    file.expand(files).forEach(function (filename) {
+      var opts = _.extend({filename: filename}, options),
+          html = grunt.helper("jade", file.read(filename), opts, data),
+      basename = path.basename(filename),
+       extname = path.extname(filename),
+      htmlname = basename.substring(0, basename.length - extname.length) + ".html",
+       outpath = path.join(dest, htmlname);
+      file.write(outpath, html);
+      log.writeln("File '" + outpath + "' created.");
+    });
+  });
+
+  grunt.registerHelper("jade", function (src, options, data) {
+    var jade = require("jade"),
+      jadeFn = jade.compile(src, options);
+    return jadeFn(data);
+  });
 
 };
