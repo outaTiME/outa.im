@@ -1,9 +1,9 @@
 {
   "name": "outaTiME",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "description": "Cooool, my personal portfolio (sandbox proposed tool).",
   "homepage": "http://outa.im",
-  "keywords": ["personal", "profile", "portfolio", "sandbox", "outaTiME"],
+  "keywords": ["outatime", "ariel falduto", "personal", "profile", "portfolio", "sandbox"],
   "author": "outaTiME <afalduto@gmail.com> (http://outa.im)",
   "repository": {
     "type": "git",
