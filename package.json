@@ -7,10 +7,10 @@
   "author": "outaTiME <afalduto@gmail.com> (http://outa.im)",
   "repository": {
     "type": "git",
-    "url": "http://github.com/outaTiME/outatime.git"
+    "url": "http://github.com/outaTiME/outa.im.git"
   },
   "bugs": {
-    "url": "http://github.com/outaTiME/outatime/issues"
+    "url": "http://github.com/outaTiME/outa.im/issues"
   },
   "main": "app",
   "dependencies": {
