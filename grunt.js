@@ -16,7 +16,6 @@ module.exports = function (grunt) {
       'js/jquery-1.7.2.min.js',
       'js/jquery.ba-dotimeout.min.js',
       'js/bootstrap/bootstrap.min.js',
-      // 'js/flexie.js',
       'js/outatime.js'
     ],
     lint: {
@@ -181,57 +180,11 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-recess');
-  // grunt.loadNpmTasks('grunt-contrib');
+  grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-growl');
   grunt.loadNpmTasks('grunt-replace');
 
   grunt.registerTask('default', 'recess jade:dev lint concat replace growl:dev');
   grunt.registerTask('dist', 'recess jade:dist lint min replace growl:dist');
-
-  var file = grunt.file,
-       log = grunt.log,
-         _ = grunt.utils._;
-
-  // Helper for consistent options key access across contrib tasks.
-  grunt.registerHelper("options", function (data) {
-    var namespace = data.nameArgs.split(":"),
-             task = grunt.config(_.flatten([namespace, "options"])),
-   global_subtask = namespace.length > 1 ? grunt.config(_.flatten(["options", namespace])) : {},
-           global = grunt.config(["options", namespace[0]]);
-    return _.defaults({}, task, global_subtask, global);
-  });
-
-  grunt.registerMultiTask("jade", "Compile Jade templates into HTML.", function () {
-    var options = grunt.helper("options", this),
-           path = require("path"),
-          files = this.file.src,
-           dest = this.file.dest,
-           data = options.data;
-    // add template process for grunt templates
-    if (typeof data !== "undefined") {
-      Object.keys(data).forEach(function (key) {
-        var value = data[key];
-        if (typeof value === 'string') {
-          data[key] = grunt.template.process(data[key]);
-        }
-      });
-    }
-    file.expand(files).forEach(function (filename) {
-      var opts = _.extend({filename: filename}, options),
-          html = grunt.helper("jade", file.read(filename), opts, data),
-      basename = path.basename(filename),
-       extname = path.extname(filename),
-      htmlname = basename.substring(0, basename.length - extname.length) + ".html",
-       outpath = path.join(dest, htmlname);
-      file.write(outpath, html);
-      log.writeln("File '" + outpath + "' created.");
-    });
-  });
-
-  grunt.registerHelper("jade", function (src, options, data) {
-    var jade = require("jade"),
-      jadeFn = jade.compile(src, options);
-    return jadeFn(data);
-  });
 
 };

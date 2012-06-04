@@ -14,14 +14,11 @@ html(class="no-js", lang="en")
     block styles
       link(rel="stylesheet", href="/css/outatime.css")
       link(rel="stylesheet", href="/css/css-social-buttons/css/zocial.css")
-    script(src='/js/modernizr.custom.11127.js')
+    script(src="/js/modernizr.custom.11127.js")
   body
     div(role="main")
       block content
     block scripts
-      script(src="/js/outatime" + (debug === true ? '.js' : '.min.js'))
+      script(src="/js/outatime" + (debug === true ? ".js" : ".min.js"))
     script
-      var _gaq=[['_setAccount','UA-31782998-1'],['_setDomainName', 'outa.im'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+      var _gaq=[['_setAccount','UA-31782998-1'],['_setDomainName','outa.im'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
