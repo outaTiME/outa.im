@@ -1,6 +1,6 @@
 {
   "name": "outaTiME",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Cooool, my personal portfolio (sandbox proposed tool).",
   "homepage": "http://outa.im",
   "keywords": ["outatime", "ariel falduto", "personal", "profile", "portfolio", "sandbox"],
@@ -14,8 +14,8 @@
   },
   "main": "app",
   "dependencies": {
-    "connect": "2.x"
-  }, 
+    "connect": ">=2.3.x"
+  },
   "devDependencies": {
     "grunt": ">=0.3.9",
     "grunt-recess": ">=0.1.0",

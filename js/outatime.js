@@ -20,15 +20,16 @@ $(function () {
 
   // configure tooltip
   $('#avatar').tooltip({
-    title: "Woooot, happy face!",
+    title: "Woooot,  It's so cute!",
     trigger: "manual",
     placement: 'top'
   });
 
   // configure tooltips for social
-  $('#social a').tooltip({
+  $('#social a').tooltip({ /* , #sandbox a */
     placement: 'bottom'
   });
+
 
   // happy code
   if (Modernizr.touch) {

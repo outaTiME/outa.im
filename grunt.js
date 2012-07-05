@@ -45,8 +45,9 @@ module.exports = function (grunt) {
     },
     jade: {
       dev: {
-        src: ['jade/index.jade', 'jade/sandbox.jade'],
-        dest: 'public',
+        files: {
+          "public/index.html": 'jade/index.jade'
+        },
         options: {
           pretty: true,
           data: {
@@ -56,8 +57,9 @@ module.exports = function (grunt) {
         }
       },
       dist: {
-        src: ['<config:jade.dev.src>'],
-        dest: 'public',
+        files: {
+          "public/index.html": 'jade/index.jade'
+        },
         options: {
           data: {
             debug: false,
@@ -82,7 +84,7 @@ module.exports = function (grunt) {
         tasks: 'recess replace growl:rebuild'
       },
       jade: {
-        files: ['jade/layout.jade', '<config:jade.dev.src>'],
+        files: ['jade/layout.jade', 'jade/index.jade'],
         tasks: 'jade:dev replace growl:rebuild'
       },
       js: {
