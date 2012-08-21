@@ -30,7 +30,6 @@ $(function () {
     placement: 'bottom'
   });
 
-
   // happy code
   if (Modernizr.touch) {
     $('#avatar').bind('touchstart', function () {
