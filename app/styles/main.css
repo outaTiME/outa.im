@@ -54,6 +54,7 @@ body.night .container {
 .site-wrapper-inner {
   display: table-cell;
   vertical-align: middle;
+  padding: 15px 0;
 }
 
 .cover-container {
@@ -165,16 +166,6 @@ hr.soften {
 
 */
 
-/* media queries */
-
-@media (min-width : 480px) {
-
-  .cover-container {
-    width: 420px;
-  }
-
-}
-
 /* footer */
 
 .social-bar {
@@ -208,4 +199,19 @@ nav a:hover,
 nav a:focus {
   outline: none;
   color: rgba(255, 255, 255, 1);
+}
+
+/* media queries */
+
+@media (min-width : 480px) {
+
+  .cover-container {
+    width: 420px;
+  }
+
+  .cover-heading {
+    /* like h1 */
+    font-size: 36px;
+  }
+
 }
