@@ -31,24 +31,6 @@ body.night {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
-
-  /*
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  */
-
-  /* background: radial-gradient(farthest-side, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 150%); */
-}
-
-body.night .container {
-
-  /* background: radial-gradient(farthest-side, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 150%); */
-
 }
 
 .site-wrapper-inner {
@@ -60,32 +42,20 @@ body.night .container {
 .cover-container {
   margin-right: auto;
   margin-left: auto;
-  background-color: white;
-
-  border-radius: 2px;
-
+  /* border-radius: 2px; */
+  /* border */
+  /* border: 1px solid rgba(0, 0, 0, 0.9); */
+  border: 1px solid rgba(0, 0, 0, 0.35);
   background-color: rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(0, 0, 0, 0.9);
-
-  /* box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.9), 1px 1px 3px 1px rgba(0, 0, 0, 0.2); */
-
-  /* same as body */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-
-  cursor: default;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0px 0px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 3px 1px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.30), 0 1px 3px rgba(0, 0, 0, 0.5);
+  /* remove selection */
   user-select: none;
-
+  cursor: default;
 }
 
 body.night .cover-container {
   background-color: rgba(255, 255, 255, 0.10);
-  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
 .inner {
@@ -102,19 +72,25 @@ body.night .cover-container {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   /* box-shadow: 25px 25px rgba(255, 255, 255, 0.32) inset; */
   /* box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.9), 1px 1px 3px 1px rgba(0, 0, 0, 0.2); */
-
   background-repeat: no-repeat;
   background-position: center;
-
-  background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
-
+  background-image:
+    url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
   transition: background 0.4s ease-in-out;
+  /* glossy */
+  overflow: hidden;
+}
 
+.cover-avatar .glossy {
+  width: 100%;
+  height: 100%;
+  background: transparent url(../images/glossy.png) no-repeat 0 0;
 }
 
 /* .cover-avatar:active */
 .cover-avatar.hover {
-  background-image: url(../images/avatar.png);
+  background-image:
+    url(../images/avatar.png);
  }
 
 @media
@@ -126,57 +102,27 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 
   .cover-avatar {
-
-    background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200);
+    background-image:
+      url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200);
     background-size: 100px 100px;
 
   }
 
   /* .cover-avatar:active */
   .cover-avatar.hover {
-    background: url(../images/avatar-2x.png) no-repeat center center;
+    background-image:
+      url(../images/avatar-2x.png);
     background-size: 100px 100px;
   }
 
 }
 
-
-
-/* .cover-avatar:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
-} */
-
-.cover-avatar div.overlay {
-  /* background: transparent url(../images/note-overlay.png) no-repeat center center;
-  width: 100%;
-  height: 100%; */
-}
-
 .cover-heading {
   font-family: 'Vibur', cursive;
-  /* font-size: 41px; */
-  /* margin: 20px 0; */
 }
-
-/* .inner.social,
-.inner.footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.9);
-}
-
-body.night .inner.social,
-body.night .inner.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-} */
 
 .social {
   background-color: rgba(0, 0, 0, 0.35);
-  /* margin: 0 20px; */
 }
 
 .cover-container p:last-of-type {
@@ -200,16 +146,12 @@ hr.soften {
 /* footer */
 
 .social-bar {
-  /* margin: 20px 0; */
 }
 
 .social-bar i {
-  /* margin: 0 10px; */
-  /* cursor: pointer; */
 }
 
 .social-bar i:hover {
-  /* color: rgba(255, 255, 255, 1); */
 }
 
 nav a {
