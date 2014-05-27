@@ -1,13 +1,9 @@
 
-/*
-
 'use strict';
 
-var evt = ('ontouchstart' in window) ? 'touchstart' : 'click';
+var hasTouch = 'ontouchstart' in window;
 
-$('.cover-avatar').on(evt, function (e) {
+$('.cover-avatar').on(hasTouch ? 'touchstart' : 'click', function (e) {
     $(this).toggleClass('hover');
     e.preventDefault();
 });
-
-*/
