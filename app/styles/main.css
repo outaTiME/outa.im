@@ -106,15 +106,14 @@ body.night .cover-container {
   background-repeat: no-repeat;
   background-position: center;
 
-  transition: background 0.4s ease-in-out;
-
   background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
+
+  transition: background 0.4s ease-in-out;
 
 }
 
-/* .cover-avatar:hover, */
 .cover-avatar.hover {
-  background: url(../images/avatar.png) no-repeat center center;
+  background-image: url(../images/avatar.png);
  }
 
 @media

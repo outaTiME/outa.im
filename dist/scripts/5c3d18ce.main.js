@@ -1,0 +1,1 @@
+"use strict";$(".cover-avatar").on("touchstart click",function(a){$(this).toggleClass("hover"),a.preventDefault()});
