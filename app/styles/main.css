@@ -112,7 +112,7 @@ body.night .cover-container {
 
 }
 
-.cover-avatar.hover {
+.cover-avatar:active {
   background-image: url(../images/avatar.png);
  }
 
@@ -131,7 +131,7 @@ only screen and (                min-resolution: 2dppx) {
 
   }
 
-  .cover-avatar.hover {
+  .cover-avatar:active {
     background: url(../images/avatar-2x.png) no-repeat center center;
     background-size: 100px 100px;
   }
