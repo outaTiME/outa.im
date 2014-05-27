@@ -106,7 +106,8 @@ body.night .cover-container {
   transition: background 0.4s ease-in-out;
 }
 
-.cover-avatar:hover {
+.cover-avatar:hover,
+.cover-avatar.hover {
   background: url(../images/avatar.png) no-repeat center center;
 
  }
@@ -203,11 +204,15 @@ nav a:focus {
 
 /* media queries */
 
-@media (min-width : 480px) {
+@media (min-width: 768px) {
 
   .cover-container {
     width: 420px;
   }
+
+}
+
+@media (min-width : 480px) {
 
   .cover-heading {
     /* like h1 */
