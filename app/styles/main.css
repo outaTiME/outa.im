@@ -102,15 +102,44 @@ body.night .cover-container {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   /* box-shadow: 25px 25px rgba(255, 255, 255, 0.32) inset; */
   /* box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.9), 1px 1px 3px 1px rgba(0, 0, 0, 0.2); */
-  background: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100) no-repeat center center;
+
+  background-repeat: no-repeat;
+  background-position: center;
+
   transition: background 0.4s ease-in-out;
+
+  background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
+
 }
 
-.cover-avatar:hover,
+/* .cover-avatar:hover, */
 .cover-avatar.hover {
   background: url(../images/avatar.png) no-repeat center center;
-
  }
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+  .cover-avatar {
+
+    background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200);
+    background-size: 100px 100px;
+
+  }
+
+  .cover-avatar.hover {
+    background: url(../images/avatar-2x.png) no-repeat center center;
+    background-size: 100px 100px;
+  }
+
+}
+
+
 
 /* .cover-avatar:before {
   content: "";
