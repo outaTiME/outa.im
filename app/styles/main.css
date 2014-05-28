@@ -52,6 +52,8 @@ body.night {
   /* remove selection */
   user-select: none;
   cursor: default;
+  /* social bar */
+  overflow: hidden;
 }
 
 body.night .cover-container {
