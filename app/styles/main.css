@@ -19,6 +19,8 @@ body {
   font-size: 15px;
   /* line-height: 1.2; */
   background: url(../images/empty_wide.jpg) no-repeat center center fixed;
+  /* animation */
+  transition: background 0.4s ease-in-out;
 }
 
 body.night {
@@ -31,6 +33,8 @@ body.night {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
+  /* remove selection */
+  user-select: none;
 }
 
 .site-wrapper-inner {
@@ -40,8 +44,8 @@ body.night {
 }
 
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+  /* center */
+  margin: 0 auto;
   /* border-radius: 2px; */
   /* border */
   /* border: 1px solid rgba(0, 0, 0, 0.9); */
@@ -49,11 +53,11 @@ body.night {
   background-color: rgba(0, 0, 0, 0.65);
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0px 0px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 3px 1px rgba(0, 0, 0, 0.2); */
   box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.30), 0 1px 3px rgba(0, 0, 0, 0.5);
-  /* remove selection */
-  user-select: none;
   cursor: default;
   /* social bar */
   overflow: hidden;
+  /* animation */
+  transition: background 0.4s ease-in-out;
 }
 
 body.night .cover-container {
@@ -78,9 +82,10 @@ body.night .cover-container {
   background-position: center;
   background-image:
     url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
-  transition: background 0.4s ease-in-out;
   /* glossy */
   overflow: hidden;
+  /* animation */
+  transition: background 0.4s ease-in-out;
 }
 
 .cover-avatar .glossy {
@@ -127,23 +132,33 @@ only screen and (                min-resolution: 2dppx) {
   background-color: rgba(0, 0, 0, 0.35);
 }
 
-.cover-container p:last-of-type {
+p:last-of-type {
   margin: 0;
 }
 
-.footer p:last-of-type {
+.footer p {
   font-size: 12px;
 }
 
-/*
+.footer a,
+.footer a:visited,
+.footer a:active {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px #fff dotted;
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px #fff solid;
+}
 
 hr.soften {
   height: 1px;
   border: 0;
   background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(255, 255, 255, 1), rgba(0, 0, 0, 0));
 }
-
-*/
 
 /* footer */
 
@@ -176,17 +191,24 @@ nav a:focus {
   color: rgba(255, 255, 255, 1);
 }
 
+.fade-transition {
+  /* animation */
+  transition: background 0.4s ease-in-out;
+}
+
 /* media queries */
 
 @media (min-width: 768px) {
 
-  .cover-container {
-    width: 420px;
-  }
 
 }
 
 @media (min-width : 480px) {
+
+  .cover-container {
+    /* fixed */
+    width: 450px;
+  }
 
   .cover-heading {
     /* like h1 */
@@ -194,3 +216,5 @@ nav a:focus {
   }
 
 }
+
+
