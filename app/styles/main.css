@@ -20,6 +20,7 @@ body {
   /* line-height: 1.2; */
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
   /* background-color: #333; */
   /* animation */
   transition: background 0.4s ease-in-out;
