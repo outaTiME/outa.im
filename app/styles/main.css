@@ -26,11 +26,11 @@ body {
   transition: background 0.4s ease-in-out;
 }
 
-body.day {
+body.dott {
   background-image: url(../images/empty_wide.jpg);
 }
 
-body.night {
+body.mc {
   background-image: url(../images/night_empty_wide.jpg);
 }
 
@@ -74,7 +74,7 @@ body.night {
   overflow: hidden;
 }
 
-body.night .cover-container {
+body.mc .cover-container {
   background-color: rgba(255, 255, 255, 0.10);
 }
 

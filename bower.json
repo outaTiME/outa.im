@@ -1,11 +1,13 @@
 {
-  "name": "outa-im",
+  "name": "outa.im",
   "private": true,
   "dependencies": {
-    "bootstrap": "~3.0.3",
-    "jquery": "~1.11.0",
+    "bootstrap": "~3.1.1",
+    "jquery": "~2.1.1",
     "animate.css": "~3.1.1",
-    "fontawesome": "~4.1.0"
+    "fontawesome": "~4.1.0",
+    "pre-loader": "~0.3.1",
+    "suncalc": "*"
   },
   "devDependencies": {}
 }
