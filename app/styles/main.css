@@ -83,36 +83,50 @@ body.night .cover-container {
 }
 
 .cover-avatar {
+  position: relative;
   margin: 0 auto;
   height: 100px;
   width: 100px;
-  border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 1);
-  /* same as body */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-  /* box-shadow: 25px 25px rgba(255, 255, 255, 0.32) inset; */
-  /* box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.9), 1px 1px 3px 1px rgba(0, 0, 0, 0.2); */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image:
-    url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
-  /* glossy */
-  overflow: hidden;
-  /* animation */
-  transition: background 0.4s ease-in-out;
 }
 
-.cover-avatar .glossy {
+/* .cover-avatar .glossy {
   width: 100%;
   height: 100%;
   background: transparent url(../images/glossy.png) no-repeat 0 0;
+} */
+
+.cover-avatar div {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 1);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* same as body */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  /* animation */
+  transition: opacity 0.4s ease-in-out;
 }
 
-/* .cover-avatar:active */
-.cover-avatar.hover {
-  background-image:
-    url(../images/avatar.png);
- }
+.cover-avatar .gravatar {
+  background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
+  opacity: 1;
+}
+
+.cover-avatar .geek {
+  background-image: url(../images/avatar.png);
+  opacity: 0;
+}
+
+.cover-avatar.hover .gravatar {
+  opacity: 0;
+}
+
+.cover-avatar.hover .geek {
+  opacity: 1;
+}
 
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -122,14 +136,13 @@ only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 
-  .cover-avatar {
+  .cover-avatar .gravatar {
     background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200);
     background-size: 100px 100px;
 
   }
 
-  /* .cover-avatar:active */
-  .cover-avatar.hover {
+  .cover-avatar .geek {
     background-image: url(../images/avatar-2x.png);
     background-size: 100px 100px;
   }
@@ -138,6 +151,9 @@ only screen and (                min-resolution: 2dppx) {
 
 .cover-heading {
   font-family: 'Vibur', cursive;
+  /* overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; */
 }
 
 .social {
