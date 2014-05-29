@@ -14,24 +14,20 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    var nightStyle;
+    var _night;
 
-    var updateStyle = window._updateStyle = function (night) {
-        if (night !== nightStyle) {
+    var night = function (night) {
+        if (night !== _night) {
             if (night === true) {
-
                 // trace
                 console.log('Midnight commander');
-
                 $('body').removeClass('day').addClass('night');
             } else {
-
                 // trace
                 console.log('Day of the tentacle');
-
                 $('body').removeClass('night').addClass('day');
             }
-            nightStyle = night;
+            _night = night;
         }
     };
 
@@ -39,10 +35,17 @@ $(document).ready(function () {
         var currentTime = new Date();
         var hours = currentTime.getHours();
         if (hours >= 10 && hours < 19) {
-            updateStyle(false);
+            night(false);
         } else {
-            updateStyle(true);
+            night(true);
         }
+    };
+
+    var interval;
+
+    window._night = function (night) {
+        window.clearInterval(interval);
+        night(night);
     };
 
     var preload = [
@@ -62,8 +65,6 @@ $(document).ready(function () {
         );
     }
 
-    console.log(preload);
-
     var promises = [];
 
     var loadImage = function (url, promise) {
@@ -79,21 +80,14 @@ $(document).ready(function () {
     }
 
     $.when.apply($, promises).done(function () {
-
-        // trace
-        console.log('All images ready sir!');
-
         // initial
         checkTime();
-
         // interval
-        window.setInterval(function () {
+        interval = window.setInterval(function () {
             checkTime();
         }, 1 * 1000);
-
-        // hide loader
-        $('.blocking-overlay').addClass('hidden');
-
+        // hide loader and show container
+        $('.blocking-overlay, .container').addClass('done');
     });
 
 });
