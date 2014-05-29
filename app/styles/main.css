@@ -18,13 +18,23 @@ body {
   font-weight: 300;
   font-size: 15px;
   /* line-height: 1.2; */
-  background: url(../images/empty_wide.jpg) no-repeat center center fixed;
+  /* background-repeat: no-repeat;
+  background-position: center; */
+  /* background-color: #333; */
   /* animation */
   transition: background 0.4s ease-in-out;
 }
 
+body.day {
+  background-image: url(../images/empty_wide.jpg);
+}
+
 body.night {
-  background: url(../images/night_empty_wide.jpg) no-repeat center center fixed;
+  background-image: url(../images/night_empty_wide.jpg);
+}
+
+.preload {
+  display: none !important;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
