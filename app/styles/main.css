@@ -26,15 +26,11 @@ body {
 }
 
 body.day {
-  background-image: url(../images/empty_wide.jpg);
+  background: url(../images/empty_wide.jpg) no-repeat center center fixed;
 }
 
 body.night {
-  background-image: url(../images/night_empty_wide.jpg);
-}
-
-.preload {
-  display: none !important;
+  background: url(../images/night_empty_wide.jpg)  no-repeat center center fixed;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
