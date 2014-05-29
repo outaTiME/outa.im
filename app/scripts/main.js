@@ -16,9 +16,9 @@ $(document).ready(function () {
 
     var _night;
 
-    var night = function (night) {
-        if (night !== _night) {
-            if (night === true) {
+    var night = function (status) {
+        if (status !== _night) {
+            if (status === true) {
                 // trace
                 console.log('Midnight commander');
                 $('body').removeClass('day').addClass('night');
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 console.log('Day of the tentacle');
                 $('body').removeClass('night').addClass('day');
             }
-            _night = night;
+            _night = status;
         }
     };
 
@@ -43,9 +43,9 @@ $(document).ready(function () {
 
     var interval;
 
-    window._night = function (night) {
+    window._night = function (status) {
         window.clearInterval(interval);
-        night(night);
+        night(status);
     };
 
     var preload = [
