@@ -137,6 +137,7 @@ only screen and (                min-resolution: 2dppx) {
 
 .social {
   background-color: rgba(0, 0, 0, 0.35);
+  padding: 0px;
 }
 
 p:last-of-type {
@@ -169,18 +170,9 @@ hr.soften {
 
 /* footer */
 
-.social-bar {
-}
-
-.social-bar i {
-}
-
-.social-bar i:hover {
-}
-
 nav a {
   position: relative;
-  /* display: inline-block; */
+  display: inline-block;
   outline: none;
   color: #fff;
   /* text-decoration: none;
@@ -189,19 +181,37 @@ nav a {
   font-weight: 400;
   text-shadow: 0 0 1px rgba(255,255,255,0.3);
   font-size: 1.35em; */
-  margin: 10px;
+  /* padding: 20px 10px; */
+  margin: 20px 10px;
+  /* transition: all 0.20s ease-in-out 0s; */
 }
 
-nav a:hover,
-nav a:focus {
+nav a:hover  {
   outline: none;
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
+  /* default */
+  /* background-color: rgba(0, 0, 0, 0.35); */
 }
 
-.fade-transition {
-  /* animation */
-  transition: background 0.4s ease-in-out;
+/*
+
+nav a.twitter:hover  {
+  background-color: rgba(85, 172, 238, 0.35);
 }
+
+nav a.github:hover  {
+  background-color: rgba(153, 153, 153, 0.35);
+}
+
+nav a.dribbble:hover  {
+  background-color: rgba(234, 76, 137, 0.35);
+}
+
+nav a.linkedin:hover  {
+  background-color: rgba(9, 118, 180, 0.35);
+}
+
+*/
 
 /* media queries */
 
