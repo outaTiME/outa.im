@@ -3,13 +3,6 @@
 
 $(document).ready(function () {
 
-    /*
-    <link rel="prefetch" href="images/empty_wide.jpg">
-    <link rel="prefetch" href="images/night_empty_wide.jpg">
-    <link rel="prefetch" href="//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100">
-    <link rel="prefetch" href="//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200">
-    */
-
     // when loads
 
     // $('.preload').remove();
@@ -21,13 +14,21 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    var nightStyle = false;
+    var nightStyle;
 
     var updateStyle = window._updateStyle = function (night) {
         if (night !== nightStyle) {
             if (night === true) {
+
+                // trace
+                console.log('Midnight commander');
+
                 $('body').removeClass('day').addClass('night');
             } else {
+
+                // trace
+                console.log('Day of the tentacle');
+
                 $('body').removeClass('night').addClass('day');
             }
             nightStyle = night;
@@ -44,15 +45,55 @@ $(document).ready(function () {
         }
     };
 
-    // initial
-    checkTime();
+    var preload = [
+        'images/empty_wide.jpg',
+        'images/night_empty_wide.jpg'
+    ];
 
-    // interval
-    window.setInterval(function () {
+    if (window.devicePixelRatio > 1) {
+        preload.push(
+            '//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200',
+            'images/avatar-2x.png'
+        );
+    } else {
+        preload.push(
+            '//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100',
+            'images/avatar.png'
+        );
+    }
+
+    console.log(preload);
+
+    var promises = [];
+
+    var loadImage = function (url, promise) {
+        var img = new Image();
+        img.onload = function () {
+            promise.resolve();
+        };
+        img.src = url;
+    };
+
+    for (var i = 0; i < preload.length; i++) {
+        loadImage(preload[i], promises[i] = $.Deferred());
+    }
+
+    $.when.apply($, promises).done(function () {
+
+        // trace
+        console.log('All images ready sir!');
+
+        // initial
         checkTime();
-    }, 1 * 1000);
 
-    // FIXME: end loading
+        // interval
+        window.setInterval(function () {
+            checkTime();
+        }, 1 * 1000);
 
+        // hide loader
+        $('.blocking-overlay').addClass('hidden');
+
+    });
 
 });

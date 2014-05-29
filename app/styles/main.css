@@ -116,16 +116,14 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 
   .cover-avatar {
-    background-image:
-      url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200);
+    background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200);
     background-size: 100px 100px;
 
   }
 
   /* .cover-avatar:active */
   .cover-avatar.hover {
-    background-image:
-      url(../images/avatar-2x.png);
+    background-image: url(../images/avatar-2x.png);
     background-size: 100px 100px;
   }
 
@@ -212,6 +210,51 @@ nav a.linkedin:hover  {
 }
 
 */
+
+/* spinner */
+
+.blocking-overlay {
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  /* animation */
+  transition: all 10s ease-in-out;
+}
+
+.blocking-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Remove these to get rid of the spinner */
+.spinner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.spinner-icon {
+  width: 24px;
+  height: 24px;
+  border:  solid 2px transparent;
+  border-top-color:  #29d;
+  border-left-color: #29d;
+  border-radius: 50%;
+  /* display: inline-block; */
+  margin: 15px auto;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+
+@keyframes nprogress-spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 /* media queries */
 
