@@ -65,12 +65,15 @@ var init = function () {
         var times = SunCalc.getTimes(new Date(), data.latitude, data.longitude);
         console.log('Dawn: %s', times.dawn);
         console.log('Dusk: %s', times.dusk);
+        var dawn = times.dawn;
+        var dusk = times.dusk;
+        var dawnMins = dawn.getHours() * 60 + dawn.getMinutes();
+        var duskMins = dusk.getHours() * 60 + dusk.getMinutes();
         // override
         check = function () {
-            var current = new Date().getTime();
-            var dawn = times.dawn.getTime();
-            var dusk = times.dusk.getTime();
-            dott(current >= dawn && current <= dusk);
+            var current = new Date();
+            var currentMins = current.getHours() * 60 + current.getMinutes();
+            dott(currentMins >= dawnMins && currentMins <= duskMins);
         };
     } else {
         console.log('No location found');
