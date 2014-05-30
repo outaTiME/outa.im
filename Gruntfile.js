@@ -120,6 +120,17 @@ module.exports = function (grunt) {
             server: '.tmp'
         },
 
+        buildcontrol: {
+            dist: {
+                options: {
+                    remote: 'git@github.com:outaTiME/outa.im.git',
+                    branch: 'gh-pages',
+                    commit: true,
+                    push: true
+                }
+            }
+        },
+
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
             options: {
@@ -288,6 +299,7 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
+                        'CNAME',
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*'
@@ -378,6 +390,13 @@ module.exports = function (grunt) {
         'rev',
         'usemin',
         'htmlmin'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'newer:jshint',
+        'test',
+        'build',
+        'buildcontrol'
     ]);
 
     grunt.registerTask('default', [
