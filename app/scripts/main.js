@@ -19,10 +19,16 @@ var dott = function (activate) {
         if (activate !== true) {
             // trace
             console.log('Midnight commander');
+            // update image
+            $.backstretch('images/night_empty_wide.jpg', {fade: 400});
+            // attach classes
             $('body').removeClass('dott').addClass('mc');
         } else {
             // trace
             console.log('Day of the tentacle');
+            // update image
+            $.backstretch('images/empty_wide.jpg', {fade: 400});
+            // attach classes
             $('body').removeClass('mc').addClass('dott');
         }
         _dott = activate;
