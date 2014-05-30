@@ -23,7 +23,7 @@ body {
   background-position: center center;
   background-attachment: fixed; */
   /* animation */
-  transition: background 0.4s ease-in-out;
+  /* transition: background 0.4s ease-in-out; */
 }
 
 /* body.dott {
