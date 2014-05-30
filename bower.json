@@ -8,7 +8,7 @@
     "fontawesome": "~4.1.0",
     "pre-loader": "~0.3.1",
     "suncalc": "*",
-    "jquery-backstretch": "~2.0.4"
+    "vegas": "~1.3.4"
   },
   "devDependencies": {}
 }
