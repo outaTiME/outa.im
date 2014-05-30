@@ -394,14 +394,14 @@ module.exports = function (grunt) {
 
     grunt.registerTask('deploy', [
         'newer:jshint',
-        'test',
+        // 'test',
         'build',
         'buildcontrol'
     ]);
 
     grunt.registerTask('default', [
         'newer:jshint',
-        'test',
+        // 'test',
         'build'
     ]);
 };
