@@ -29,7 +29,46 @@ var dott = function (activate) {
     }
 };
 
-// TODO: preload only required wide image ??
+var check = function () {
+    // always dott
+    dott(true);
+};
+
+var init = function () {
+    // init style
+    if (arguments.length > 0) {
+        // with location
+        var data = arguments[0];
+        console.log('Using location: %o', data);
+        var times = SunCalc.getTimes(new Date(), data.latitude, data.longitude);
+        console.log('Dawn: %s', times.dawn);
+        console.log('Dusk: %s', times.dusk);
+        // override
+        check = function () {
+            var current = new Date().getTime();
+            var dawn = times.dawn.getTime();
+            var dusk = times.dusk.getTime();
+            dott(current >= dawn && current <= dusk);
+        };
+    } else {
+        console.log('No location found');
+    }
+    // set initial bg
+    check();
+    // interval
+    var interval = window.setInterval(function () {
+        check();
+    }, 1 * 1000);
+    // test
+    window._mc = function (enable) {
+        window.clearInterval(interval);
+        dott(!enable);
+    };
+    // hide loader and show container
+    $('.blocking-overlay, .container').addClass('done');
+};
+
+// proload images
 
 var preload = [
     'images/empty_wide.jpg',
@@ -48,75 +87,14 @@ if (window.devicePixelRatio > 1) {
     );
 }
 
-/* var promises = [];
-
-var loadImage = function (url, promise) {
-    var img = new Image();
-    img.onload = function () {
-        promise.resolve();
-    };
-    img.onerror = img.onabort = function () {
-        promise.resolve();
-    };
-    img.src = url;
-};
-
-for (var i = 0; i < preload.length; i++) {
-    loadImage(preload[i], promises[i] = $.Deferred());
-}
-
-$.when.apply($, promises).done(function () {
-    // interval
-    var interval = window.setInterval(function () {
-        check();
-    }, 1 * 1000);
-    // test
-    window._dott = function (enable) {
-        window.clearInterval(interval);
-        dott(enable);
-    };
-    // hide loader and show container
-    $('.blocking-overlay, .container').addClass('done');
-}); */
-
-// console.log(preload);
-
 new preLoader(preload, {
     onComplete: function () {
-
-        var lat = -34.9097103;
-        var lng = -57.9604389;
-        var times = SunCalc.getTimes(new Date(), lat, lng);
-
-        console.log(times.dawn, times.dusk);
-
-        var check = function () {
-            var currentTime = new Date();
-            var hours = currentTime.getHours();
-            if (hours >= 10 && hours < 19) {
-                dott(true);
-            } else {
-                dott(false);
-            }
-        };
-
-        // set initial bg
-
-        check();
-
-        // interval
-        var interval = window.setInterval(function () {
-            check();
-        }, 1 * 1000);
-
-        // test
-        window._mc = function (enable) {
-            window.clearInterval(interval);
-            dott(!enable);
-        };
-
-        // hide loader and show container
-        $('.blocking-overlay, .container').addClass('done');
-
+        // took location
+        $.getJSON('//www.telize.com/geoip?callback=?', function (data) {
+            init(data);
+        })
+        .fail(function () {
+            init();
+        });
     }
 });
