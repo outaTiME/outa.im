@@ -25,14 +25,14 @@
                 /* $.backstretch('images/night_empty_wide.jpg', {
                     fade: 400
                 }); */
-                $.vegas({
+                /* $.vegas({
                     src:'images/night_empty_wide.jpg',
                     fade: 400,
                     loading: false,
                     complete: callback
-                });
+                }); */
                 // attach classes
-                $('body').removeClass('dott').addClass('mc');
+                $('html').removeClass('dott').addClass('mc');
             } else {
                 // trace
                 console.log('Day of the tentacle');
@@ -40,14 +40,14 @@
                 /* $.backstretch('images/empty_wide.jpg', {
                     fade: 400
                 }); */
-                $.vegas({
+                /* $.vegas({
                     src:'images/empty_wide.jpg',
                     fade: 400,
                     loading: false,
                     complete: callback
-                });
+                }); */
                 // attach classes
-                $('body').removeClass('mc').addClass('dott');
+                $('html').removeClass('mc').addClass('dott');
             }
             _dott = activate;
         }
@@ -85,45 +85,44 @@
             console.log('No location found');
         }
         // set initial bg
-        check(function () {
-            // trace
-            console.log('Vegas completed');
-            // end first load
-            var interval = window.setInterval(function () {
-                check();
-            }, 1 * 1000);
-            // test
-            window.outa = {
-                dott: function (activate, clear) {
-                    // clear check interval
-                    window.clearInterval(interval);
-                    // clear local interval
-                    if (clear !== false) {
-                        var localInterval = this._interval;
-                        if (typeof localInterval !== 'undefined') {
-                            window.clearInterval(localInterval);
-                            delete this._interval;
-                        }
+        check();
+        // trace
+        console.log('Vegas completed');
+        // end first load
+        var interval = window.setInterval(function () {
+            check();
+        }, 1 * 1000);
+        // test
+        window.outa = {
+            dott: function (activate, clear) {
+                // clear check interval
+                window.clearInterval(interval);
+                // clear local interval
+                if (clear !== false) {
+                    var localInterval = this._interval;
+                    if (typeof localInterval !== 'undefined') {
+                        window.clearInterval(localInterval);
+                        delete this._interval;
                     }
-                    dott(activate);
-                },
-                mc: function (activate, clear) {
-                    this.dott(!activate, clear);
-                },
-                switch: function (clear) {
-                    this.dott(!_dott, clear);
-                },
-                party: function (speed) {
-                    var self = this;
-                    this.switch();
-                    this._interval = window.setInterval(function () {
-                        self.switch(false);
-                    }, 1 * (speed || 1000));
                 }
-            };
-            // hide loader and show container
-            $('.blocking-overlay, .container').addClass('done');
-        });
+                dott(activate);
+            },
+            mc: function (activate, clear) {
+                this.dott(!activate, clear);
+            },
+            switch: function (clear) {
+                this.dott(!_dott, clear);
+            },
+            party: function (speed) {
+                var self = this;
+                this.switch();
+                this._interval = window.setInterval(function () {
+                    self.switch(false);
+                }, 1 * (speed || 1000));
+            }
+        };
+        // hide loader and show container
+        $('.blocking-overlay, .container').addClass('done');
     };
 
     // proload images
