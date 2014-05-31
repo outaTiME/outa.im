@@ -6,17 +6,6 @@ body {
   height: 100%;
 }
 
-html {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  /* animation */
-  transition: background 0.4s ease-in-out;
-  /* improve scroll performance */
-  transform: translate3d(0,0,0);
-}
-
 body {
   text-align: center;
   color: #fff;
@@ -27,8 +16,7 @@ body {
   font-family: "Helvetica Neue",sans-serif;
   font-weight: 300;
   font-size: 15px;
-  /* background-color: #eee; */
-  background-color: transparent;
+  background-color: #eee;
   /* line-height: 1.2; */
   /* background-size: cover;
   background-repeat: no-repeat;
@@ -38,13 +26,13 @@ body {
   /* transition: background 0.4s ease-in-out; */
 }
 
-html.dott {
+/* body.dott {
   background-image: url(../images/empty_wide.jpg);
 }
 
-html.mc {
+body.mc {
   background-image: url(../images/night_empty_wide.jpg);
-}
+} */
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .container {
@@ -86,7 +74,7 @@ html.mc {
   overflow: hidden;
 }
 
-html.mc .cover-container {
+body.mc .cover-container {
   background-color: rgba(255, 255, 255, 0.10);
 }
 
