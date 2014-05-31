@@ -44,14 +44,14 @@ body.mc {
   /* remove selection */
   user-select: none;
   /* defaults */
-  opacity: 0;
+  /* opacity: 0; */
   /* animation */
-  transition: opacity 0.4s ease-in-out;
+  /* transition: opacity 0.4s ease-in-out; */
 }
 
-.container.done {
+/* .container.done {
   opacity: 1;
-}
+} */
 
 .site-wrapper-inner {
   display: table-cell;
@@ -72,6 +72,8 @@ body.mc {
   cursor: default;
   /* social bar */
   overflow: hidden;
+  /* animation */
+  transition: background 0.4s ease-in-out;
 }
 
 body.mc .cover-container {
@@ -252,7 +254,7 @@ nav a.linkedin:hover  {
   visibility: visible;
   opacity: 1;
   /* animation */
-  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  transition: visibility 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 .blocking-overlay.done {

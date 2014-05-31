@@ -122,7 +122,8 @@
                 }
             };
             // hide loader and show container
-            $('.blocking-overlay, .container').addClass('done');
+            // $('.blocking-overlay, .container').addClass('done');
+            $('.blocking-overlay').addClass('done');
         });
     };
 
