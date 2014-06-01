@@ -91,7 +91,7 @@
             // end first load
             var interval = window.setInterval(function () {
                 check();
-            }, 1 * 1000);
+            }, 1 * 60 * 1000); // 1 minute
             // test
             window.outa = {
                 dott: function (activate, clear) {
