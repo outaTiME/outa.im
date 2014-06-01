@@ -64,20 +64,20 @@
             // with location
             var data = arguments[0];
             // trace
-            console.log('Using location: %o', data);
+            console.log('Location: %s, %s', data.city, data.country);
             var times = SunCalc.getTimes(new Date(), data.latitude, data.longitude);
             // trace
-            console.log('Dawn: %s', times.dawn);
-            console.log('Dusk: %s', times.dusk);
-            var dawn = times.dawn;
-            var dusk = times.dusk;
-            var dawnMins = dawn.getHours() * 60 + dawn.getMinutes();
-            var duskMins = dusk.getHours() * 60 + dusk.getMinutes();
+            console.log('Sunrise: %s', times.sunrise);
+            console.log('Sunset: %s', times.sunset);
+            var sunrise = times.sunrise;
+            var sunset = times.sunset;
+            var sunriseMins = sunrise.getHours() * 60 + sunrise.getMinutes();
+            var sunsetMins = sunset.getHours() * 60 + sunset.getMinutes();
             // override
             check = function (callback) {
                 var current = new Date();
                 var currentMins = current.getHours() * 60 + current.getMinutes();
-                dott(currentMins >= dawnMins && currentMins <= duskMins,
+                dott(currentMins >= sunriseMins && currentMins <= sunsetMins,
                     callback || $.noop);
             };
         } else {
@@ -87,7 +87,7 @@
         // set initial bg
         check(function () {
             // trace
-            console.log('Vegas completed');
+            // console.log('Vegas completed');
             // end first load
             var interval = window.setInterval(function () {
                 check();
