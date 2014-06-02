@@ -64,7 +64,8 @@
             // with location
             var data = arguments[0];
             // trace
-            console.log('Location: %s, %s', data.city, data.country);
+            console.log('Location: %o', data);
+            // console.log('Location: %s, %s', data.city, data.country);
             var times = SunCalc.getTimes(new Date(), data.latitude, data.longitude);
             // trace
             console.log('Sunrise: %s', times.sunrise);
