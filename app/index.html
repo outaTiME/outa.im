@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>Hello, i'm outaTiME — Ariel Falduto</title>
+    <title>Hello, i'm @@author — Ariel Falduto</title>
     <meta name="description" content="Freelance web developer and ui designer from Argentina. Minimalist, perfectionist, passion for creating and design fancy stuff for the www.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
-    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
-    <link rel="stylesheet" href="bower_components/vegas/dist/jquery.vegas.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -19,7 +19,8 @@
     <!-- endbuild -->
   </head>
   <body>
-    <div class="container animated fadeInDown">
+    <!-- div class="container animated fadeInDown" -->
+    <div class="container">
       <div class="site-wrapper-inner">
         <div class="cover-container">
           <div class="inner cover">
@@ -27,7 +28,7 @@
               <div class="gravatar"></div>
               <div class="geek"></div>
             </div>
-            <h2 class="cover-heading">~ hello, i'm outatime ~</h2>
+            <h2 class="cover-heading">~ hello, i'm @@author ~</h2>
             <p>Also known as <strong>Ariel Falduto</strong>. Minimalist, perfectionist, passion for creating and design fancy stuff for the www, love trying out new technologies and experiences.</p>
           </div>
           <div class="inner social spacer">
@@ -50,7 +51,7 @@
             </nav>
           </div>
           <div class="inner footer spacer">
-            <p>Copyright © 2014 outaTiME. All rights reserved. Artwork by <a href="http://dlanham.com/" target="_blank">David Lanham</a>. Shipped with <span>❤</span> from Argentina.</p>
+            <p>@@copyrightNotice Artwork by <a href="http://dlanham.com/" target="_blank">David Lanham</a>. Shipped with <i class="fa fa-heart-o fa-fw"></i> from Argentina.</p>
           </div>
         </div>
       </div>
@@ -60,14 +61,18 @@
         <div class="spinner-icon"></div>
       </div>
     </div>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/pre-loader/pre-loader.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/pre-loader/pre-loader.js"></script>
     <script src="bower_components/suncalc/suncalc.js"></script>
     <script src="bower_components/vegas/dist/jquery.vegas.js"></script>
+    <script src="bower_components/jquery-backstretch/jquery.backstretch.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -76,6 +81,7 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-31782998-1');ga('send','pageview');
     </script>
+
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
