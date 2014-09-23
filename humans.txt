@@ -1,7 +1,7 @@
 
               __     _
    _    _/__  /./|,//_`
-  /_//_// /_|///  //_, v.0.0.5
+  /_//_// /_|///  //_, v.0.0.6
 
 
 /* TEAM */
@@ -12,7 +12,7 @@
   From: Buenos Aires, Argentina
 
 /* SITE */
-  Last update: Mon Sep 22 2014 22:45:11
+  Last update: Tue Sep 23 2014 10:35:04
   Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
   Components: H5BP, Modernizr, jQuery, Bootstrap, LESS, Yeoman, Grunt
   Software: Atom, Sublime Text 3, Photoshop
