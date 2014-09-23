@@ -48,6 +48,7 @@ body.mc {
   /* opacity: 0; */
   /* animation */
   /* transition: opacity 0.4s ease-in-out; */
+  padding: 0;
 }
 
 /* .container.done {
@@ -58,7 +59,11 @@ body.mc {
   display: table-cell;
   vertical-align: middle;
   /* 15px + 1px border from cover-container */
-  padding: 16px 0;
+  /* padding: 16px 0; */
+}
+
+.cover-container-wrapper {
+  margin: 15px;
 }
 
 .cover-container {
@@ -71,6 +76,7 @@ body.mc {
   overflow: hidden;
   /* animation */
   transition: background 0.4s ease-in-out;
+  /* width: inherit; */
 }
 
 body.mc .cover-container {
@@ -79,7 +85,7 @@ body.mc .cover-container {
 }
 
 .inner {
-  padding: 20px;
+  padding: 15px;
 }
 
 .cover-avatar {
