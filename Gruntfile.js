@@ -23,7 +23,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     author: '<%= config.pkg.author.name %>',
     version: '<%= config.pkg.version %>',
-    copyrightNotice: 'Copyright <%= grunt.template.today("yyyy") %> <%= config.author %>. All rights reserved.',
+    copyrightNotice: 'Copyright © <%= grunt.template.today("yyyy") %> <%= config.author %>. All rights reserved.',
     banner: '/*!\n' +
       ' *              __     _\n' +
       ' *   _    _/__  /./|,//_`\n' +
