@@ -257,7 +257,8 @@ module.exports = function (grunt) {
           useShortDoctype: true,
           // custom
           removeComments: true,
-          minifyJS: true
+          minifyJS: true,
+          keepClosingSlash: true
         },
         files: [{
           expand: true,
