@@ -119,12 +119,30 @@ const htmlminOptions = {
 };
 
 gulp.task('html', ['styles', 'scripts'], () => {
+  const jsFilter = $.filter('**/*.js', { restore: true, dot: true });
+  const cssFilter = $.filter('**/*.css', { restore: true, dot: true });
+  const htmlFilter = $.filter('**/*.html', { restore: true, dot: true });
+  return gulp.src('app/*.html')
+    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
+    .pipe(jsFilter)
+    .pipe($.uglify())
+    .pipe($.header(banner, headerOptions))
+    .pipe(jsFilter.restore)
+    .pipe(cssFilter)
+    .pipe($.cssnano(cssnanoOptions))
+    .pipe($.header(banner, headerOptions))
+    .pipe(cssFilter.restore)
+    .pipe(htmlFilter)
+    .pipe($.htmlmin(htmlminOptions))
+    .pipe(htmlFilter.restore)
+    .pipe(gulp.dest('dist'));
+});
 
+gulp.task('html_v2', ['styles', 'scripts'], () => {
   const jsFilter = $.filter('**/*.js', { restore: true, dot: true });
   const cssFilter = $.filter('**/*.css', { restore: true, dot: true });
   const htmlFilter = $.filter('**/*.html', { restore: true, dot: true });
   const indexHtmlFilter = $.filter(['**/*', '!**/index.html'], { restore: true, dot: true });
-
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe(jsFilter)
@@ -241,14 +259,19 @@ gulp.task('wiredep', () => {
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  const replaceFilter = $.filter([
-    'index.html',
-    'humans.txt'
-  ], { restore: true, matchBase: true });
+  const replaceFilter = $.filter(['index.html', 'humans.txt'], { restore: true, matchBase: true });
+  const revFilter = $.filter(['/images/*.png'], { restore: true, matchBase: true, debug: true});
   return gulp.src('dist/**/*')
+    // replace
     .pipe(replaceFilter)
     .pipe($.replace(replaceOptions))
     .pipe(replaceFilter.restore)
+    // rev
+    .pipe(revFilter)
+    .pipe($.rev())
+    .pipe(revFilter.restore)
+    // renames
+    .pipe($.revReplace())
     .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'build', gzip: true}));
 });
