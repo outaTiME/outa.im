@@ -14,5 +14,5 @@
 /* SITE */
   Last update: @@timestamp
   Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
-  Components: H5BP, Modernizr, jQuery, Bootstrap, LESS, Yeoman, Grunt
-  Software: Atom, Sublime Text 3, Photoshop
+  Components: Yeoman, Gulp, jQuery, Bootstrap, Font Awesome, Applause
+  Software: Sublime Text 3, Atom, Sketch

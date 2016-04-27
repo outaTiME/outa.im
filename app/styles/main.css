@@ -17,22 +17,18 @@ body {
   font-weight: 300;
   font-size: 15px;
   background-color: #eee;
-  /* line-height: 1.2; */
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed; */
+  background-size: cover;
   /* animation */
-  /* transition: background 0.4s ease-in-out; */
+  transition: background-image 0.4s ease-in-out;
 }
 
-/* body.dott {
-  background-image: url(../images/empty_wide.jpg);
+body.dott {
+  background: url(../images/empty_wide.jpg) no-repeat center center fixed;
 }
 
 body.mc {
-  background-image: url(../images/night_empty_wide.jpg);
-} */
+  background: url(../images/night_empty_wide.jpg) no-repeat center center fixed;
+}
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .container {
@@ -42,24 +38,14 @@ body.mc {
   height: 100%; /* For at least Firefox */
   min-height: 100%;
   opacity: 1;
+  padding: 0;
   /* remove selection */
   user-select: none;
-  /* defaults */
-  /* opacity: 0; */
-  /* animation */
-  /* transition: opacity 0.4s ease-in-out; */
-  padding: 0;
 }
-
-/* .container.done {
-  opacity: 1;
-} */
 
 .site-wrapper-inner {
   display: table-cell;
   vertical-align: middle;
-  /* 15px + 1px border from cover-container */
-  /* padding: 16px 0; */
 }
 
 .cover-container-wrapper {
@@ -70,13 +56,11 @@ body.mc {
   margin: 0 auto;
   border: 1px solid rgba(0, 0, 0, 0.35);
   background-color: rgba(0, 0, 0, 0.65);
-  /* box-shadow: 0 0 0 1px rgba(255, 255, 255, .3), 0 1px 3px rgba(0, 0, 0, 0.5); */
   cursor: default;
   /* social bar */
   overflow: hidden;
   /* animation */
   transition: background 0.4s ease-in-out;
-  /* width: inherit; */
 }
 
 body.mc .cover-container {
@@ -110,19 +94,22 @@ body.mc .cover-container {
   border: 3px solid rgba(255, 255, 255, 1);
   background-repeat: no-repeat;
   background-position: center;
-  /* same as body */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   /* animation */
   transition: opacity 0.4s ease-in-out;
 }
 
 .cover-avatar .gravatar {
-  background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
+  // background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100);
+  background-image: url(//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200);
+  background-size: 100px 100px;
   opacity: 1;
 }
 
 .cover-avatar .geek {
-  background-image: url(../images/avatar.png);
+  // background-image: url(../images/avatar.png);
+  background-image: url(../images/avatar-2x.png);
+  background-size: 100px 100px;
   opacity: 0;
 }
 
@@ -133,6 +120,8 @@ body.mc .cover-container {
 .cover-avatar.hover .geek {
   opacity: 1;
 }
+
+/*
 
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -155,12 +144,11 @@ only screen and (                min-resolution: 2dppx) {
 
 }
 
+*/
+
 .cover-heading {
   font-family: 'Vibur', cursive;
   text-transform: lowercase;
-  /* overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; */
   margin: ;
 }
 
@@ -204,43 +192,13 @@ nav a {
   display: inline-block;
   outline: none;
   color: #fff;
-  /* text-decoration: none;
-  text-transform: uppercase; */
-  /* letter-spacing: 1px;
-  font-weight: 400;
-  text-shadow: 0 0 1px rgba(255,255,255,0.3);
-  font-size: 1.35em; */
-  /* padding: 20px 10px; */
   margin: 20px 10px;
-  /* transition: all 0.20s ease-in-out 0s; */
 }
 
 nav a:hover  {
   outline: none;
   color: #fff;
-  /* default */
-  /* background-color: rgba(0, 0, 0, 0.35); */
 }
-
-/*
-
-nav a.twitter:hover  {
-  background-color: rgba(85, 172, 238, 0.35);
-}
-
-nav a.github:hover  {
-  background-color: rgba(153, 153, 153, 0.35);
-}
-
-nav a.dribbble:hover  {
-  background-color: rgba(234, 76, 137, 0.35);
-}
-
-nav a.linkedin:hover  {
-  background-color: rgba(9, 118, 180, 0.35);
-}
-
-*/
 
 /* spinner */
 
@@ -280,10 +238,11 @@ nav a.linkedin:hover  {
   border:  solid 2px transparent;
   border-top-color:  #29d;
   border-left-color: #29d;
+  /* border-bottom-color: #ddd;
+  border-right-color: #ddd; */
   border-radius: 50%;
-  /* display: inline-block; */
   margin: 15px auto;
-  animation: nprogress-spinner 400ms linear infinite;
+  animation: nprogress-spinner 0.4s linear infinite;
 }
 
 @keyframes nprogress-spinner {
@@ -294,7 +253,6 @@ nav a.linkedin:hover  {
 /* media queries */
 
 @media (min-width: 768px) {
-
 
 }
 

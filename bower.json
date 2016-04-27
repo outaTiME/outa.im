@@ -2,14 +2,21 @@
   "name": "outa.im",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.2.0",
-    "jquery": "^2.1.0",
-    "fontawesome": "^4.1.0",
-    "pre-loader": "^0.3.1",
-    "suncalc": "*",
-    "vegas": "^1.3.4"
+    "bootstrap": "~3.3.0",
+    "jquery": "^2.2.0",
+    "font-awesome": "fontawesome#^4.6.0",
+    "suncalc": "^1.7.0",
+    "PxLoader": "^1.0.0"
   },
-  "resolutions": {
-    "jquery": "^2.1.0"
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "fonts/*"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.0"
   }
 }

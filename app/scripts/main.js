@@ -1,5 +1,7 @@
 
-(function (window) {
+/* global SunCalc, PxLoader */
+
+(function(window) {
 
   'use strict';
 
@@ -7,58 +9,41 @@
 
   var hasTouch = 'ontouchstart' in window;
 
-  $('.cover-avatar').on(hasTouch ? 'touchstart' : 'click', function (e) {
-    $(this).toggleClass('hover');
+  $('.cover-avatar').on(hasTouch ? 'touchstart' : 'click', function(e) {
     e.preventDefault();
+    $(this).toggleClass('hover');
   });
 
   // bg
 
-  var _dott;
+  var state;
 
-  var dott = function (activate, callback) {
-    if (activate !== _dott) {
+  var dott = function(activate, callback) {
+    callback = callback || $.noop;
+    if (activate !== state) {
       if (activate !== true) {
         // trace
         console.log('Midnight commander');
-        // update image
-        /* $.backstretch('images/night_empty_wide.jpg', {
-            fade: 400
-        }); */
-        $.vegas({
-          src:'images/night_empty_wide.jpg',
-          fade: 400,
-          loading: false,
-          complete: callback
-        });
+        callback.call(this);
         // attach classes
         $('body').removeClass('dott').addClass('mc');
       } else {
         // trace
         console.log('Day of the tentacle');
-        // update image
-        /* $.backstretch('images/empty_wide.jpg', {
-            fade: 400
-        }); */
-        $.vegas({
-          src:'images/empty_wide.jpg',
-          fade: 400,
-          loading: false,
-          complete: callback
-        });
+        callback.call(this);
         // attach classes
         $('body').removeClass('mc').addClass('dott');
       }
-      _dott = activate;
+      state = activate;
     }
   };
 
-  var check = function (callback) {
+  var check = function(callback) {
     // always dott
-    dott(true, callback || $.noop);
+    dott(true, callback);
   };
 
-  var init = function () {
+  var init = function() {
     // init style
     if (arguments.length > 0) {
       // with location
@@ -75,88 +60,84 @@
       var sunriseMins = sunrise.getHours() * 60 + sunrise.getMinutes();
       var sunsetMins = sunset.getHours() * 60 + sunset.getMinutes();
       // override
-      check = function (callback) {
+      check = function(callback) {
         var current = new Date();
         var currentMins = current.getHours() * 60 + current.getMinutes();
-        dott(currentMins >= sunriseMins && currentMins <= sunsetMins,
-          callback || $.noop);
+        dott(currentMins >= sunriseMins && currentMins <= sunsetMins, callback);
       };
     } else {
       // trace
       console.log('No location found');
     }
     // set initial bg
-    check(function () {
+    check(function() {
       // trace
       // console.log('Vegas completed');
       // end first load
-      var interval = window.setInterval(function () {
+      var interval = window.setInterval(function() {
         check();
       }, 1 * 60 * 1000); // 1 minute
       // test
       window.outa = {
-        dott: function (activate, clear) {
+        dott: function(activate, clear) {
           // clear check interval
           window.clearInterval(interval);
           // clear local interval
           if (clear !== false) {
-            var localInterval = this._interval;
+            var localInterval = this.localInterval;
             if (typeof localInterval !== 'undefined') {
               window.clearInterval(localInterval);
-              delete this._interval;
+              delete this.localInterval;
             }
           }
           dott(activate);
         },
-        mc: function (activate, clear) {
+        mc: function(activate, clear) {
           this.dott(!activate, clear);
         },
-        switch: function (clear) {
-          this.dott(!_dott, clear);
+        switch: function(clear) {
+          this.dott(!state, clear);
         },
-        party: function (speed) {
+        party: function(speed) {
           var self = this;
           this.switch();
-          this._interval = window.setInterval(function () {
+          this.localInterval = window.setInterval(function() {
             self.switch(false);
           }, 1 * (speed || 1000));
         }
       };
       // hide loader and show container
-      // $('.blocking-overlay, .container').addClass('done');
       $('.blocking-overlay').addClass('done');
     });
   };
 
   // proload images
 
-  var preload = [
-    'images/empty_wide.jpg',
-    'images/night_empty_wide.jpg'
-  ];
+  var loader = new PxLoader();
+  loader.addImage('images/empty_wide.jpg');
+  loader.addImage('images/night_empty_wide.jpg');
+  loader.addImage('//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200');
+  loader.addImage('images/avatar-2x.png');
+  loader.addCompletionListener(function() {
 
-  if (window.devicePixelRatio > 1) {
-    preload.push(
-      '//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200',
-      'images/avatar-2x.png'
-    );
-  } else {
-    preload.push(
-      '//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=100',
-      'images/avatar.png'
-    );
-  }
+    // took geolocation data
 
-  new preLoader(preload, {
-    onComplete: function () {
-      // took location
-      $.getJSON('//www.telize.com/geoip?callback=?', function (data) {
-        init(data);
-      })
-      .fail(function () {
-        init();
+    $.ajax({
+      url: '//freegeoip.io/json/',
+      type: 'POST',
+      dataType: 'jsonp'
+    }).success(function(data) {
+      init({
+        ip: data.ip,
+        country: data.country_name,
+        latitude: data.latitude,
+        longitude: data.longitude
       });
-    }
+    }).fail(function() {
+      init();
+    });
+
   });
+  loader.start();
 
 }(window));
