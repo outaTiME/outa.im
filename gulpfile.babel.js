@@ -260,7 +260,7 @@ gulp.task('wiredep', () => {
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
   const replaceFilter = $.filter(['index.html', 'humans.txt'], { restore: true, matchBase: true });
-  const revFilter = $.filter(['/images/*.png'], { restore: true, matchBase: true, debug: true});
+  const revFilter = $.filter(['images/*.png'], { restore: true, matchBase: true});
   return gulp.src('dist/**/*')
     // replace
     .pipe(replaceFilter)
