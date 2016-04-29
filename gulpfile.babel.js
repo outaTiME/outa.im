@@ -5,14 +5,17 @@ import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
 import pkg from './package.json';
+import runSequence from 'run-sequence';
 
 const $ = gulpLoadPlugins({
   rename: {
     'gulp-replace-task': 'replace',
     'gulp-rev-replace': 'revReplace',
+    'gulp-rev-napkin': 'revNapkin',
     'gulp-gh-pages': 'ghPages'
   }
 });
+
 const reload = browserSync.reload;
 
 gulp.task('styles', () => {
@@ -38,37 +41,6 @@ const author = pkg.author.name;
 const version = pkg.version;
 const year = new Date().getFullYear();
 const copyrightNotice = `Copyright © ${year} ${author}. All rights reserved.`;
-
-const replaceOptions = {
-  patterns: [
-    {
-      match: 'author',
-      replacement: author
-    },
-    {
-      match: 'version',
-      replacement: version
-    },
-    {
-      match: 'copyrightNotice',
-      replacement: copyrightNotice
-    },
-    {
-      match: 'timestamp',
-      replacement: require('dateformat')()
-    }
-  ]
-};
-
-gulp.task('replace', () => {
-  return gulp.src([
-      'app/*.html',
-      'app/humans.txt'
-    ])
-    .pipe($.replace(replaceOptions))
-    .pipe(gulp.dest('.tmp'))
-    .pipe(reload({stream: true}));
-});
 
 function lint(files, options) {
   return () => {
@@ -119,9 +91,9 @@ const htmlminOptions = {
 };
 
 gulp.task('html', ['styles', 'scripts'], () => {
-  const jsFilter = $.filter('**/*.js', { restore: true, dot: true });
-  const cssFilter = $.filter('**/*.css', { restore: true, dot: true });
-  const htmlFilter = $.filter('**/*.html', { restore: true, dot: true });
+  const jsFilter = $.filter('**/*.js', { restore: true });
+  const cssFilter = $.filter('**/*.css', { restore: true });
+  const htmlFilter = $.filter('**/*.html', { restore: true });
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe(jsFilter)
@@ -135,31 +107,6 @@ gulp.task('html', ['styles', 'scripts'], () => {
     .pipe(htmlFilter)
     .pipe($.htmlmin(htmlminOptions))
     .pipe(htmlFilter.restore)
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('html_v2', ['styles', 'scripts'], () => {
-  const jsFilter = $.filter('**/*.js', { restore: true, dot: true });
-  const cssFilter = $.filter('**/*.css', { restore: true, dot: true });
-  const htmlFilter = $.filter('**/*.html', { restore: true, dot: true });
-  const indexHtmlFilter = $.filter(['**/*', '!**/index.html'], { restore: true, dot: true });
-  return gulp.src('app/*.html')
-    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe(jsFilter)
-    .pipe($.uglify())
-    .pipe($.header(banner, headerOptions))
-    .pipe(jsFilter.restore)
-    .pipe(cssFilter)
-    .pipe($.cssnano(cssnanoOptions))
-    .pipe($.header(banner, headerOptions))
-    .pipe(cssFilter.restore)
-    .pipe(htmlFilter)
-    .pipe($.htmlmin(htmlminOptions))
-    .pipe(htmlFilter.restore)
-    .pipe(indexHtmlFilter)
-    .pipe($.rev())
-    .pipe(indexHtmlFilter.restore)
-    .pipe($.revReplace())
     .pipe(gulp.dest('dist'));
 });
 
@@ -183,17 +130,43 @@ gulp.task('fonts', () => {
 });
 
 gulp.task('extras', () => {
-  return gulp.src([
-    'app/*',
-    '!app/*.html'
-  ], {
-    dot: true
-  }).pipe(gulp.dest('dist'));
+  return gulp.src(['app/*', '!app/*.html'], { dot: true })
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'scripts', 'replace', 'fonts'], () => {
+function replace(source, target) {
+  return () => {
+    return gulp.src([`${source}/*.html`, `${source}/humans.txt`])
+      .pipe($.replace({
+        patterns: [
+          {
+            match: 'author',
+            replacement: author
+          },
+          {
+            match: 'version',
+            replacement: version
+          },
+          {
+            match: 'copyrightNotice',
+            replacement: copyrightNotice
+          },
+          {
+            match: 'timestamp',
+            replacement: require('dateformat')()
+          }
+        ]
+      }))
+      .pipe(gulp.dest(target || source))
+  };
+}
+
+gulp.task('replace', replace('dist'));
+gulp.task('replace:tmp', replace('app', '.tmp'));
+
+gulp.task('serve', ['styles', 'scripts', 'fonts', 'replace:tmp'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -202,7 +175,8 @@ gulp.task('serve', ['styles', 'scripts', 'replace', 'fonts'], () => {
       routes: {
         '/bower_components': 'bower_components'
       }
-    }
+    },
+    open: false
   });
 
   gulp.watch([
@@ -212,7 +186,7 @@ gulp.task('serve', ['styles', 'scripts', 'replace', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/*.html', ['replace']);
+  gulp.watch('app/*.html', ['replace:tmp']);
   gulp.watch('app/styles/**/*.css', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
@@ -258,14 +232,13 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  const replaceFilter = $.filter(['index.html', 'humans.txt'], { restore: true, matchBase: true });
-  const revFilter = $.filter(['images/*.png'], { restore: true, matchBase: true});
+gulp.task('revision', () => {
+  const revFilter = $.filter([
+    '**/images/**/*',
+    '**/scripts/**/*',
+    '**/styles/**/*',
+  ], { restore: true });
   return gulp.src('dist/**/*')
-    // replace
-    .pipe(replaceFilter)
-    .pipe($.replace(replaceOptions))
-    .pipe(replaceFilter.restore)
     // rev
     .pipe(revFilter)
     .pipe($.rev())
@@ -273,14 +246,32 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
     // renames
     .pipe($.revReplace())
     .pipe(gulp.dest('dist'))
-    .pipe($.size({title: 'build', gzip: true}));
+    // remove originals
+    .pipe($.revNapkin({
+      verbose: false
+    }))
 });
 
-gulp.task('default', ['clean'], () => {
-  gulp.start('build');
+gulp.task('size', () => {
+  return gulp.src('dist/**/*')
+    .pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('deploy', ['build'], () => {
   return gulp.src('dist/**/*')
     .pipe($.ghPages());
+});
+
+gulp.task('build', ['clean'], (callback) => {
+  runSequence(
+    ['lint', 'html', 'images', 'fonts', 'extras'],
+    'revision',
+    'replace',
+    'size',
+    callback
+  );
+});
+
+gulp.task('default', () => {
+  gulp.start('build');
 });

@@ -71,37 +71,37 @@
     }
     // set initial bg
     check(function() {
-      // trace
-      // console.log('Vegas completed');
       // end first load
       var interval = window.setInterval(function() {
         check();
       }, 1 * 60 * 1000); // 1 minute
+      // use for party mode
+      var partyInterval;
+      // apply theme
+      var apply = function(dottTheme, clear) {
+        // clear check interval
+        window.clearInterval(interval);
+        // clear party interval
+        if (clear !== false && partyInterval) {
+          window.clearInterval(partyInterval);
+        }
+        dott(dottTheme !== false);
+      }
       // test
       window.outa = {
-        dott: function(activate, clear) {
-          // clear check interval
-          window.clearInterval(interval);
-          // clear local interval
-          if (clear !== false) {
-            var localInterval = this.localInterval;
-            if (typeof localInterval !== 'undefined') {
-              window.clearInterval(localInterval);
-              delete this.localInterval;
-            }
-          }
-          dott(activate);
+        dott: function(clear) {
+          apply(true, clear);
         },
-        mc: function(activate, clear) {
-          this.dott(!activate, clear);
+        mc: function(clear) {
+          apply(false, clear);
         },
         switch: function(clear) {
-          this.dott(!state, clear);
+          apply(!state, clear);
         },
         party: function(speed) {
           var self = this;
           this.switch();
-          this.localInterval = window.setInterval(function() {
+          partyInterval = window.setInterval(function() {
             self.switch(false);
           }, 1 * (speed || 1000));
         }
@@ -119,9 +119,7 @@
   loader.addImage('//2.gravatar.com/avatar/5674d32fd9778602c097731984f0ec96?s=200');
   loader.addImage('images/avatar-2x.png');
   loader.addCompletionListener(function() {
-
     // took geolocation data
-
     $.ajax({
       url: '//freegeoip.io/json/',
       type: 'POST',
@@ -136,7 +134,6 @@
     }).fail(function() {
       init();
     });
-
   });
   loader.start();
 

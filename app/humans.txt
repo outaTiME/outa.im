@@ -12,7 +12,7 @@
   From: Buenos Aires, Argentina
 
 /* SITE */
-  Last update: @@timestamp
+  Last updates: @@timestamp
   Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
   Components: Yeoman, Gulp, jQuery, Bootstrap, Font Awesome, Applause
   Software: Sublime Text 3, Atom, Sketch
