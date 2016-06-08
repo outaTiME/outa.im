@@ -6,6 +6,7 @@ import del from 'del';
 import {stream as wiredep} from 'wiredep';
 import pkg from './package.json';
 import runSequence from 'run-sequence';
+import mainBowerFiles from 'main-bower-files';
 
 const $ = gulpLoadPlugins({
   rename: {
@@ -21,7 +22,9 @@ const reload = browserSync.reload;
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.css')
     .pipe($.sourcemaps.init())
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    .pipe($.autoprefixer({
+      browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
+    }))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
@@ -91,9 +94,9 @@ const htmlminOptions = {
 };
 
 gulp.task('html', ['styles', 'scripts'], () => {
-  const jsFilter = $.filter('**/*.js', { restore: true });
-  const cssFilter = $.filter('**/*.css', { restore: true });
-  const htmlFilter = $.filter('**/*.html', { restore: true });
+  const jsFilter = $.filter('**/*.js', {restore: true});
+  const cssFilter = $.filter('**/*.css', {restore: true});
+  const htmlFilter = $.filter('**/*.html', {restore: true});
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe(jsFilter)
@@ -123,14 +126,14 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
+  return gulp.src(mainBowerFiles('**/*.{eot,svg,ttf,woff,woff2}')
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('extras', () => {
-  return gulp.src(['app/*', '!app/*.html'], { dot: true })
+  return gulp.src(['app/*', '!app/*.html'], {dot: true})
     .pipe(gulp.dest('dist'));
 });
 
@@ -159,7 +162,7 @@ function replace(source, target) {
           }
         ]
       }))
-      .pipe(gulp.dest(target || source))
+      .pipe(gulp.dest(target || source));
   };
 }
 
@@ -237,7 +240,7 @@ gulp.task('revision', () => {
     '**/images/**/*',
     '**/scripts/**/*',
     '**/styles/**/*',
-  ], { restore: true });
+  ], {restore: true});
   return gulp.src('dist/**/*')
     // rev
     .pipe(revFilter)
@@ -249,7 +252,7 @@ gulp.task('revision', () => {
     // remove originals
     .pipe($.revNapkin({
       verbose: false
-    }))
+    }));
 });
 
 gulp.task('size', () => {
