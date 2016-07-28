@@ -1,5 +1,9 @@
 
 @import url(http://fonts.googleapis.com/css?family=Vibur);
+/* @import 'https://fonts.googleapis.com/css?family=Kalam'; */
+/* @import 'https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope'; */
+
+/* @import 'https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Itim|Kalam|Patrick+Hand+SC|Vibur'; */
 
 html,
 body {
@@ -15,8 +19,9 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: "Helvetica Neue",sans-serif;
   font-weight: 300;
-  font-size: 15px;
-  background-color: #eee;
+  /* font-size: 15px; */
+  /* background-color: #eee; */
+  background-color: #fff;
   background-size: cover;
   /* animation */
   transition: background-image 0.4s ease-in-out;
@@ -147,9 +152,20 @@ only screen and (                min-resolution: 2dppx) {
 */
 
 .cover-heading {
+  /* font-family: 'Vibur', cursive; */
   font-family: 'Vibur', cursive;
   text-transform: lowercase;
-  margin: ;
+  /* https://gist.github.com/yoshuawuyts/5693656 */
+  /* font-size: 40px;
+  font-size: 2.5 rem;
+  line-height: 60px;
+  line-height: 3.75 rem; */
+  /* font-family: 'Patrick Hand SC', cursive;
+  font-family: 'Kalam', cursive;
+  font-family: 'Itim', cursive; */
+  /* font-family: 'Vibur', cursive;
+  text-transform: lowercase;
+  margin: ; */
 }
 
 .social {
@@ -204,7 +220,8 @@ nav a:hover  {
 
 .blocking-overlay {
   /* same as body */
-  background-color: #eee;
+  /* background-color: #eee; */
+  background-color: #fff;
   bottom: 0;
   left: 0;
   position: fixed;
@@ -265,7 +282,7 @@ nav a:hover  {
 
   .cover-heading {
     /* like h1 */
-    font-size: 36px;
+    /* font-size: 36px; */
   }
 
 }

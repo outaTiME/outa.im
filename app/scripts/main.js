@@ -124,7 +124,7 @@
       url: '//freegeoip.io/json/',
       type: 'POST',
       dataType: 'jsonp'
-    }).success(function(data) {
+    }).done(function(data) {
       init({
         ip: data.ip,
         country: data.country_name,
