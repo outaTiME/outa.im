@@ -239,7 +239,7 @@ gulp.task('revision', () => {
   const revFilter = $.filter([
     '**/images/**/*',
     '**/scripts/**/*',
-    '**/styles/**/*',
+    '**/styles/**/*'
   ], {restore: true});
   return gulp.src('dist/**/*')
     // rev
