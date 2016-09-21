@@ -15,4 +15,4 @@
   Last updates: @@timestamp
   Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
   Components: Yeoman, Gulp, jQuery, Bootstrap, Font Awesome, Applause
-  Software: Sublime Text 3, Atom, Sketch
+  Software: Sublime Text 3, Atom, Visual Studio Code, Sketch
