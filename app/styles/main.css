@@ -168,6 +168,16 @@ only screen and (                min-resolution: 2dppx) {
   margin: ; */
 }
 
+.cover-heading:after {
+  content: '~';
+  padding-left: 10px;
+}
+
+.cover-heading:before {
+  content: '~';
+  padding-right: 10px;
+}
+
 .social {
   background-color: rgba(0, 0, 0, 0.35);
   padding: 0px;
