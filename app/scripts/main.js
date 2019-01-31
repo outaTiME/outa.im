@@ -121,8 +121,9 @@
   loader.addCompletionListener(function() {
     // took geolocation data
     $.ajax({
-      url: '//freegeoip.io/json/',
-      type: 'POST',
+      // url: '//freegeoip.io/json/',
+      // type: 'POST',
+      url: '//freegeoip.app/json/',
       dataType: 'jsonp'
     }).done(function(data) {
       init({

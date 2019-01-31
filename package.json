@@ -1,7 +1,7 @@
 {
   "name": "outa.im",
   "description": "Minimal portfolio site.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": {
     "name": "outaTiME",
     "url": "http://outa.im/"
@@ -53,10 +53,25 @@
     },
     "rules": {
       "no-console": "off",
-      "comma-dangle": ["error", "never"],
-      "comma-spacing": ["error", { "before": false, "after": true }],
-      "quotes": ["error", "single"],
-      "space-before-function-paren": ["warn", "never"]
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "comma-spacing": [
+        "error",
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "space-before-function-paren": [
+        "warn",
+        "never"
+      ]
     },
     "parserOptions": {
       "sourceType": "module"
