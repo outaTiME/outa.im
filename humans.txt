@@ -1,7 +1,7 @@
 
               __     _
    _    _/__  /./|,//_`
-  /_//_// /_|///  //_, v.0.7.1
+  /_//_// /_|///  //_, v.0.7.2
 
 
 /* TEAM */
@@ -12,7 +12,7 @@
   From: Buenos Aires, Argentina
 
 /* SITE */
-  Last updates: Thu Feb 13 2020 03:10:02
+  Last updates: Mon Feb 17 2020 17:04:15
   Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
   Components: Yeoman, Gulp, jQuery, Bootstrap, Font Awesome, Applause
   Software: Sublime Text 3, Atom, Visual Studio Code, Sketch
