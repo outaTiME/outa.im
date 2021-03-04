@@ -14,7 +14,8 @@ body {
 body {
   text-align: center;
   color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   margin: 0px;
   padding: 0px;
   -webkit-font-smoothing: antialiased;
@@ -100,7 +101,8 @@ body.mc .cover-container {
   border: 3px solid rgba(255, 255, 255, 1);
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); */
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   /* animation */
   transition: opacity 0.4s ease-in-out;
 }
@@ -296,4 +298,15 @@ nav a:hover  {
     /* font-size: 36px; */
   }
 
+}
+
+.icon {
+  transition: 0.1s ease-in;
+  /* color: #797283; */
+  color: #fff;
+  margin-right: 1em;
+}
+
+.icon:hover {
+  color: rgba(255, 255, 255, 0.35);
 }

@@ -1,7 +1,7 @@
 {
   "name": "outa.im",
   "description": "Minimal portfolio site.",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "author": {
     "name": "outaTiME",
     "url": "http://outa.im/"
@@ -43,6 +43,9 @@
     "main-bower-files": "^2.13.0",
     "run-sequence": "^1.2.0",
     "wiredep": "^4.0.0"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   },
   "eslintConfig": {
     "env": {

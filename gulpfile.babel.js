@@ -127,9 +127,9 @@ gulp.task('images', () => {
 
 gulp.task('fonts', () => {
   return gulp.src(mainBowerFiles('**/*.{eot,svg,ttf,woff,woff2}')
-    .concat('app/fonts/**/*'))
-    .pipe(gulp.dest('.tmp/fonts'))
-    .pipe(gulp.dest('dist/fonts'));
+    .concat('app/webfonts/**/*'))
+    .pipe(gulp.dest('.tmp/webfonts'))
+    .pipe(gulp.dest('dist/webfonts'));
 });
 
 gulp.task('extras', () => {
@@ -186,13 +186,13 @@ gulp.task('serve', ['styles', 'scripts', 'fonts', 'replace:tmp'], () => {
     // '.app/*.html',
     '.tmp/*.html',
     'app/images/**/*',
-    '.tmp/fonts/**/*'
+    '.tmp/webfonts/**/*'
   ]).on('change', reload);
 
   gulp.watch('app/*.html', ['replace:tmp']);
   gulp.watch('app/styles/**/*.css', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
-  gulp.watch('app/fonts/**/*', ['fonts']);
+  gulp.watch('app/webfonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
