@@ -6,7 +6,7 @@
 
 /* TEAM */
   Web Developer / Graphic Designer: Ariel Oscar Falduto
-  Site: http://outa.im
+  Site: https://outa.im
   Twitter: @outa7iME
   Contact: hi [at] outa dot im
   From: Buenos Aires, Argentina
@@ -15,4 +15,4 @@
   Last updates: @@timestamp
   Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
   Components: Yeoman, Gulp, jQuery, Bootstrap, Font Awesome, Applause
-  Software: Sublime Text 3, Atom, Visual Studio Code, Sketch
+  Software: Sublime Text, Atom, Visual Studio Code, Sketch
