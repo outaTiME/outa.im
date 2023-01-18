@@ -121,17 +121,9 @@
   loader.addCompletionListener(function() {
     // took geolocation data
     $.ajax({
-      // url: '//freegeoip.io/json/',
-      // type: 'POST',
-      url: '//freegeoip.app/json/',
-      dataType: 'jsonp'
+      url: '//get.geojs.io/v1/ip/geo.json'
     }).done(function(data) {
-      init({
-        ip: data.ip,
-        country: data.country_name,
-        latitude: data.latitude,
-        longitude: data.longitude
-      });
+      init(data);
     }).fail(function() {
       init();
     });
