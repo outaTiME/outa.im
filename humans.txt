@@ -12,7 +12,7 @@
   From: Buenos Aires, Argentina
 
 /* SITE */
-  Last updates: Wed Jan 18 2023 13:00:14
+  Last updates: Wed Jan 18 2023 13:03:13
   Standards: HTML5, CSS3, robotstxt.org, humanstxt.org
   Components: Yeoman, Gulp, jQuery, Bootstrap, Font Awesome, Applause
   Software: Sublime Text, Atom, Visual Studio Code, Sketch
